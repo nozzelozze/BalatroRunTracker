@@ -1,3 +1,4 @@
+@use "Utils/palette" as palette;
 
 
 @font-face {
@@ -7,4 +8,9 @@
 
 * {
     font-family: "m6x11";
+}
+
+body {
+    background-color: palette.background();
+    color: palette.white();
 }

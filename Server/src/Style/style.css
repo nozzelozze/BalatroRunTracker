@@ -1,7 +1,17 @@
+/*
+Uses the colors from the actual Balatro color palette
+
+Uses function for static colors just to remain consistent
+*/
 @font-face {
   font-family: "m6x11";
   src: url("./m6x11.ttf");
 }
 * {
   font-family: "m6x11";
+}
+
+body {
+  background-color: #3b3b3b;
+  color: #ffffff;
 }/*# sourceMappingURL=style.css.map */
