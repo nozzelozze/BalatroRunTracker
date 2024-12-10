@@ -1,6 +1,9 @@
 <?php
-    require "DBService.php";
-    DBService::getInstance()->addUser("Emil");
+    require "./Services/DBService.php";
+    $result = DBService::getInstance()->getUsers();
 
+    foreach ($result as $user) {
+        include "./Components/Usercard.php";
+    }
 
 ?>

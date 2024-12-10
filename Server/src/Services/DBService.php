@@ -27,7 +27,23 @@ class DBService
 
     public function addUser(string $name): void
     {
-        mysqli_query($this->connection, "INSERT INTO USERS (Username) VALUES ('$name');");
+        $this->connection->query("INSERT INTO USERS (Username) VALUES ('$name');");
+    }
+
+    public function getUsers(): array
+    {
+        $result = $this->connection->query("SELECT Username from USERS");
+        
+        $users = array();
+        if ($result->num_rows > 0)
+        {
+            while($row = $result->fetch_assoc())
+            {
+                array_push($users, $row["Username"]);
+            }
+        }
+
+        return $users;
     }
 }
 
