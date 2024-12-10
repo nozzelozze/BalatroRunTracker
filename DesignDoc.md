@@ -57,6 +57,43 @@ Javascript kan också hjälpa med att göra sidan responsiv.
 
 ## Databasens struktur
 
+```sql
+create table USERS (
+  UserID INT PRIMARY KEY, 
+  Username VARCHAR(50),
+  Password VARCHAR(50),
+  CreatedAt DATE,
+  IsAdmin BOOLEAN,
+);
+```
+```sql
+create table RUNS (
+  RunID INT PRIMARY KEY, 
+  UserID INT FOREIGN KEY,
+  Score FLOAT,
+  SubmittedAt DATE,
+  -- Här kommer fler grejer finnas såsom antal händer spelade osv
+);
+```
+```sql
+create table STATS (
+  StatID INT PRIMARY KEY, 
+  UserID INT FOREIGN KEY,
+  HighestScore FLOAT,
+  RunsCompleted INT,
+  -- Här kan fler stats finnas
+);
+```
+```sql
+create table COMMENTS (
+  CommentID INT PRIMARY KEY,
+  UserID INT FOREIGN KEY,
+  RunID INT FOREIGN KEY, 
+  CreatedAt DATE,
+  Content TEXT
+);
+```
+
 ## Balatro mod
 
 Inte direkt slutprojekts-relaterat:
