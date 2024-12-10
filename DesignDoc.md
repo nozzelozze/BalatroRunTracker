@@ -94,6 +94,8 @@ create table COMMENTS (
 );
 ```
 
+Man kan också utöka databasen genom att lägga till ex usersettings, friends, osv.
+
 ## Balatro mod
 
 Inte direkt slutprojekts-relaterat:
