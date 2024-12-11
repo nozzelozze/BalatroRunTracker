@@ -5,7 +5,11 @@
         <button>Leaderboards</button>
     </div>
     <div class="header__section">
-        <button>Log In</button>
-        <button>Sign Up</button>
+        <a href="./login">
+            <button>Log In</button>
+        </a>
+        <a href="./signup">
+            <button>Sign Up</button>
+        </a>
     </div>
 </header>
