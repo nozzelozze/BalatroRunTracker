@@ -60,3 +60,14 @@ footer
     @extend %site-section;
     padding-block: 0px;
 }
+
+
+
+.runs
+{
+    background-color: palette.red();
+    &__card
+    {
+        background-color: palette.red(3);
+    }
+}

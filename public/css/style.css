@@ -58,4 +58,11 @@ main {
 
 footer {
   padding-block: 0px;
+}
+
+.runs {
+  background-color: #fd5f54;
+}
+.runs__card {
+  background-color: #c1413a;
 }/*# sourceMappingURL=style.css.map */
