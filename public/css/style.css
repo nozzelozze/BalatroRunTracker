@@ -3,6 +3,11 @@ Uses the colors from the actual Balatro color palette
 
 Uses function for static colors just to remain consistent
 */
+/*
+
+Misc classes
+
+*/
 @font-face {
   font-family: "m6x11";
   src: url("./m6x11.ttf");
@@ -29,6 +34,10 @@ footer, .header, main {
   padding-inline: 10px;
   min-height: 30px;
   border-radius: 5px;
+}
+
+main {
+  min-height: 300px;
 }
 
 .header {

@@ -1,14 +1,25 @@
 <?php
 include "../src/utils/constants.php";
+
 ob_start();
 
-require SERVICES."UserService.php";
-$result = UserService::getUsers();
+$uri = $_SERVER["REQUEST_URI"];
 
-foreach ($result as $user)
+$routes = [
+    "/" => "index/index.php",
+    "/login" => "login/index.php",
+    "/signup" => "signup/index.php"
+];
+
+if (array_key_exists($uri, $routes))
 {
-    include COMPONENTS . "userCard.php";
+    include VIEWS.$routes[$uri];
+} else
+{
+    http_response_code(404);
+    include VIEWS."404/index.php";
 }
+
 
 $content = ob_get_clean();
 include ROOT."layout.php";

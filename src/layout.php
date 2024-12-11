@@ -13,11 +13,7 @@
 </head>
 
 <body>
-    <?php include "components/header.php" ?>
-    <main>
-        <?php echo $content; ?>
-    </main>
-    <?php include "components/footer.php" ?>
+    <?php echo $content; ?>
 </body>
 
 </html>
