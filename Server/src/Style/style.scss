@@ -1,16 +1,57 @@
 @use "Utils/palette" as palette;
+@use "Misc/helperClasses" as help;
 
 
-@font-face {
+@font-face
+{
     font-family: "m6x11";
     src: url("./m6x11.ttf");
 }
 
-* {
+*
+{
     font-family: "m6x11";
+    box-sizing:border-box
 }
 
-body {
+body
+{
     background-color: palette.background();
     color: palette.white();
+    @include help.flex-column(8px);
+}
+
+%site-section
+{
+    background-color: palette.black();
+    width: 100%;
+    max-width: 900px;
+    padding-inline: 10px;
+    min-height: 30px;
+    @include help.rounded(1);
+}
+
+main
+{
+    @extend %site-section;
+}
+
+.header
+{
+    @extend %site-section;
+    @include help.flex-row();
+    justify-content: space-between;
+    &__section
+    {
+        @include help.flex-row(5px);
+        button
+        {
+
+        }
+    }
+}
+
+footer
+{
+    @extend %site-section;
 }

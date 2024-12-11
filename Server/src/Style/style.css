@@ -9,9 +9,40 @@ Uses function for static colors just to remain consistent
 }
 * {
   font-family: "m6x11";
+  box-sizing: border-box;
 }
 
 body {
   background-color: #3b3b3b;
   color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+footer, .header, main {
+  background-color: #4f6367;
+  width: 100%;
+  max-width: 900px;
+  padding-inline: 10px;
+  min-height: 30px;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  justify-content: space-between;
+}
+.header__section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }/*# sourceMappingURL=style.css.map */
