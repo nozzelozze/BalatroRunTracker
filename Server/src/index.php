@@ -2,8 +2,8 @@
 
 ob_start();
 
-require "./Services/DBService.php";
-$result = DBService::getInstance()->getUsers();
+require "./Services/UserService.php";
+$result = UserService::getUsers();
 
 foreach ($result as $user)
 {
