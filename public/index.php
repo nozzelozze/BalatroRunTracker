@@ -1,6 +1,6 @@
 <?php
 include "../src/utils/constants.php";
-
+ 
 ob_start();
 
 $uri = $_SERVER["REQUEST_URI"];
@@ -8,12 +8,19 @@ $uri = $_SERVER["REQUEST_URI"];
 $routes = [
     "/" => "index/index.php",
     "/login" => "login/index.php",
-    "/signup" => "signup/index.php"
+    "/signup" => "signup/index.php",
+];
+
+$api = [
+    "/api/runs" => "RunService.php"
 ];
 
 if (array_key_exists($uri, $routes))
 {
     include VIEWS.$routes[$uri];
+} else if (array_key_exists($uri, $api))
+{
+    include SERVICES.$api[$uri];
 } else
 {
     http_response_code(404);
