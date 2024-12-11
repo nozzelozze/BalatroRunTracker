@@ -1,5 +1,5 @@
 @use "Utils/palette" as palette;
-@use "Misc/helperClasses" as help;
+@use "Misc/misc" as misc;
 
 
 @font-face
@@ -18,7 +18,7 @@ body
 {
     background-color: palette.background();
     color: palette.white();
-    @include help.flex-column(8px);
+    @include misc.flex-column(8px);
 }
 
 %site-section
@@ -28,7 +28,7 @@ body
     max-width: 900px;
     padding-inline: 10px;
     min-height: 30px;
-    @include help.rounded(1);
+    @include misc.rounded(1);
 }
 
 main
@@ -39,11 +39,11 @@ main
 .header
 {
     @extend %site-section;
-    @include help.flex-row();
+    @include misc.flex-row();
     justify-content: space-between;
     &__section
     {
-        @include help.flex-row(5px);
+        @include misc.flex-row(5px);
         button
         {
 
