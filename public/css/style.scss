@@ -21,20 +21,15 @@ body
     @include misc.flex-column(8px);
 }
 
+
 %site-section
 {
     background-color: palette.black();
-    width: 100%;
-    max-width: 900px;
     padding-inline: 10px;
     min-height: 30px;
+    width: 100%;
+    max-width: 900px;
     @include misc.rounded(1);
-}
-
-main
-{
-    @extend %site-section;
-    min-height: 300px;
 }
 
 .header
@@ -50,6 +45,13 @@ main
 
         }
     }
+}
+
+
+main
+{
+    @extend %site-section;
+    min-height: 325px;
 }
 
 footer

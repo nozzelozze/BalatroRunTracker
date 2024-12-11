@@ -14,14 +14,14 @@ Uses function for static colors just to remain consistent
 {
     $shade: max(1, min($shade, 1));
     $black: map-get((
-        1 : #4f6367,
+        1 : #172325,
     ), $shade);
     @return $black;
 }
 
 @function background()
 {
-    @return #3b3b3b;
+    @return #2c353c;
 }
 
 

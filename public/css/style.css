@@ -18,7 +18,7 @@ Misc classes
 }
 
 body {
-  background-color: #3b3b3b;
+  background-color: #2c353c;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -27,17 +27,13 @@ body {
   gap: 8px;
 }
 
-footer, .header, main {
-  background-color: #4f6367;
-  width: 100%;
-  max-width: 900px;
+footer, main, .header {
+  background-color: #172325;
   padding-inline: 10px;
   min-height: 30px;
+  width: 100%;
+  max-width: 900px;
   border-radius: 5px;
-}
-
-main {
-  min-height: 300px;
 }
 
 .header {
@@ -54,4 +50,7 @@ main {
   justify-content: center;
   align-items: center;
   gap: 5px;
+}
+main {
+  min-height: 325px;
 }/*# sourceMappingURL=style.css.map */
