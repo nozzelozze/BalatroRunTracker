@@ -28,15 +28,15 @@ class RunService
             ON
                 RUNS.UserID = USERS.UserID
             WHERE
-                RUNS.RunID ==" . $_GET['id']
+                RUNS.RunID = " . $_GET["id"]
             );
-            return $res;
+            return $res->fetch_assoc();
         }
+        
         $res = DBService::getInstance()->connection->query("
         SELECT
             RUNS.RunID,
             RUNS.UserID,
-            USERS.Username,
             RUNS.Score,
             RUNS.SubmittedAt
         FROM
@@ -46,7 +46,7 @@ class RunService
         ON
             RUNS.UserID = USERS.UserID
         ");
-        return $res->fetch_assoc();
+        return $res->fetch_all(MYSQLI_ASSOC);
     }
 }
 

@@ -1,5 +1,5 @@
 
 
 <button onclick="submit();">
-    Submit Run
+    Test API
 </button>

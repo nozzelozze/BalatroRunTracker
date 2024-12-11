@@ -10,7 +10,7 @@
     <link rel="manifest" href="./assets/site.webmanifest">
     <title>Balatro Runs</title>
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js"></script>
+    <script src="./js/main.js" type="module"></script>
 </head>
 
 <body>
