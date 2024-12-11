@@ -4,7 +4,7 @@ function submit()
 {
     (async () => {
         
-        const res = await new ApiClient().GET("runs")
+        const res = await new ApiClient().GET("runs", {orderBy: "score"})
         console.log(res)
 
     })()

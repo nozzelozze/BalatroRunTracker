@@ -1,5 +1,5 @@
 <?php
-require API."DBService.php";
+require SERVICES."DBService.php";
 require UTILS."handleApiRequest.php";
 
 class RunService
@@ -44,22 +44,11 @@ class RunService
         JOIN
             USERS
         ON
-            RUNS.UserID = USERS.UserID
-        ");
+            RUNS.UserID = USERS.UserID "
+         . (isset($_GET["orderBy"]) ? " ORDER BY " . $_GET["orderBy"] : "")
+        );
         return $res->fetch_all(MYSQLI_ASSOC);
     }
 }
-
-handleApiRequest(
-    function () 
-    {
-        return RunService::create();
-    },
-    function () 
-    {
-        return RunService::get();
-    }
-)
-
 
 ?>

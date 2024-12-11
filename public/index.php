@@ -12,7 +12,7 @@ $routes = [
 ];
 
 $api = [
-    "/api/runs" => "RunService.php"
+    "/api/runs" => "runs.php"
 ];
 
 if (array_key_exists($uri, $routes))

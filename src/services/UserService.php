@@ -1,5 +1,5 @@
 <?php
-require API."DBService.php";
+require SERVICES."DBService.php";
 
 class UserService
 {
