@@ -1,5 +1,5 @@
 <?php
-require "./Services/DBService.php";
+require "DBService.php";
 
 class UserService
 {
