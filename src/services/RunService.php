@@ -1,18 +1,17 @@
 <?php
 require SERVICES."DBService.php";
-require UTILS."handleApiRequest.php";
+require SERVICES."Service.php";
 
-class RunService
+class RunService extends Service
 {
-    public static function create()
+    public static function create($data = null)
     {
-        $data = json_decode(file_get_contents('php://input'), true);
         return [];
     }
 
-    public static function get()
+    public static function read($data = null)
     {
-        if (isset($_GET["id"]))
+        if (isset($data["id"]))
         {
             $res = DBService::getInstance()->connection->query("
             SELECT
@@ -28,7 +27,7 @@ class RunService
             ON
                 RUNS.UserID = USERS.UserID
             WHERE
-                RUNS.RunID = " . $_GET["id"]
+                RUNS.RunID = " . $data["id"]
             );
             return $res->fetch_assoc();
         }
@@ -45,7 +44,7 @@ class RunService
             USERS
         ON
             RUNS.UserID = USERS.UserID "
-         . (isset($_GET["orderBy"]) ? " ORDER BY " . $_GET["orderBy"] : "")
+         . (isset($data["orderBy"]) ? " ORDER BY " . $data["orderBy"] : "")
         );
         return $res->fetch_all(MYSQLI_ASSOC);
     }

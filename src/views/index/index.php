@@ -1,12 +1,9 @@
 <?php
     require SERVICES."RunService.php";
 
-    $result = RunService::get();
+    $result = RunService::read(["id" => 1]);
 
-    foreach ($result as $r)
-    {
-        echo $r;
-    }
+    echo $result["Score"];
 ?>
 
 <button onclick="submit();">
