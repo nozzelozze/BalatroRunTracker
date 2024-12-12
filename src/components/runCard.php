@@ -2,5 +2,8 @@
 
 
 <div class="runs__card">
-    <h3>Run</h3>
+    <a href="/user/<?= $run["UserID"] ?>">
+        <p><?php echo $run["Username"]; ?></p>
+    </a>
+    <p><?= $run["Score"] ?></p>
 </div>

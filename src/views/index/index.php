@@ -1,9 +1,6 @@
 <?php
-    require SERVICES."RunService.php";
-
-    $result = RunService::read(["id" => 1]);
-
-    echo $result["Score"];
+require SERVICES . "RunService.php";
+$runs = RunService::read();
 ?>
 
 <button onclick="submit();">
@@ -11,7 +8,10 @@
 </button>
 
 <div class="runs">
-    <?php include COMPONENTS."runCard.php" ?>
-    <?php include COMPONENTS."runCard.php" ?>
-    <?php include COMPONENTS."runCard.php" ?>
+    <?php
+    foreach ($runs as $run)
+    {
+        include COMPONENTS."runCard.php";
+    }
+    ?>
 </div>

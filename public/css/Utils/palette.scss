@@ -12,24 +12,21 @@ Uses function for static colors just to remain consistent
 
 @function black($shade: 1)
 {
-    $shade: max(1, min($shade, 1));
+    $shade: max(1, min($shade, 3));
     $black: map-get((
-        1 : #172325,
+        1 : #0D2B45,
+        2: #203C56,
+        3: #444b5f
     ), $shade);
     @return $black;
-}
-
-@function background()
-{
-    @return #2c353c;
 }
 
 
 @function red($shade: 2)
 {
-    $shade: max(1, min($shade, 7));
+    $shade: max(1, min($shade, 3));
     $red: map-get((
-        1 : #fe978e,
+        1 : #fe938e,
         2 : #fd5f54,
         3 : #c1413a
 
@@ -39,7 +36,7 @@ Uses function for static colors just to remain consistent
 
 @function green($shade: 2)
 {
-    $shade: max(1, min($shade, 7));
+    $shade: max(1, min($shade, 3));
     $green: map-get((
         1 : #76cba9,
         2 : #56a785,
@@ -51,7 +48,7 @@ Uses function for static colors just to remain consistent
 
 @function orange($shade: 2)
 {
-    $shade: max(1, min($shade, 7));
+    $shade: max(1, min($shade, 3));
     $yellow: map-get((
         1 : #fda300,
         2 : #e99701,
@@ -63,7 +60,7 @@ Uses function for static colors just to remain consistent
 
 @function blue($shade: 2)
 {
-    $shade: max(1, min($shade, 7));
+    $shade: max(1, min($shade, 3));
     $blue: map-get((
         1 : #3cb4ff,
         2 : #009cfd,

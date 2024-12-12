@@ -36,6 +36,7 @@ class RunService extends Service
         SELECT
             RUNS.RunID,
             RUNS.UserID,
+            USERS.Username,
             RUNS.Score,
             RUNS.SubmittedAt
         FROM
