@@ -1,12 +1,12 @@
-import ApiClient from "./api/ApiClient.js"
+import RunsClient from "./api/RunsClient.js"
 
-function submit()
+function handleSubmit(event)
 {
-    (async () => {
-        
-        const res = await new ApiClient().GET("runs", {orderBy: "score"})
-        console.log(res)
-
-    })()
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = Object.fromEntries(formData.entries());
+    new RunsClient().createRun(data)
 }
-window.submit = submit;
+
+const form = document.getElementById("submit-form")
+form.addEventListener("submit", handleSubmit)

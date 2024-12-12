@@ -6,7 +6,10 @@ class RunService extends Service
 {
     public static function create($data = null)
     {
-        return [];
+        $res = DBService::getInstance()->connection->query("
+        INSERT INTO RUNS (UserID, Score)
+        VALUES (1, ".intval($data["Score"]).")");
+        return $res;
     }
 
     public static function read($data = null)

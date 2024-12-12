@@ -11,7 +11,7 @@ class ApiClient
                 "Accept": "application/json",
                 "Content-Type": "application/json"
             },
-            body: data
+            body: JSON.stringify(data)
         })
         const content = await res.json()
         return content
