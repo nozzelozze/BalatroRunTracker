@@ -1,41 +1,35 @@
 <?php
 include "../src/utils/constants.php";
- 
+require UTILS . "Router.php";
+
 ob_start();
 
-$uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+$url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+$parts = array_filter(explode("/", $url));
+$apiRoutes = [
+    "runs" => fn() => include API . "runs.php",
+];
 
+$apiRouter = new Router($apiRoutes);
+
+$i = "/index.php";
 $routes = [
-    "/" => "index/index.php",
-    "/login" => "login/index.php",
-    "/signup" => "signup/index.php",
+    "" => fn() => include VIEWS . "index" . $i,
+    "login" => fn() => include VIEWS . "login" . $i,
+    "signup" => fn() => include VIEWS . "signup" . $i,
+    "user" => fn() => include VIEWS . "user" . $i,
+    "api" => fn() => $apiRouter->route(array_values($parts)[1])
 ];
 
-$api = [
-    "/api/runs" => "runs.php"
-];
+$router = new Router($routes);
 
-if (array_key_exists($uri, $routes))
-{
-    include VIEWS.$routes[$uri];
+$router->route(array_values($parts)[0]);
 
-
-    $content = ob_get_clean();
-    include ROOT."layout.php";
-
-} else if (array_key_exists($uri, $api))
-{
-    include API.$api[$uri];
-} else
-{
-    http_response_code(404);
-    include VIEWS."404/index.php";
-
-
+if (!(array_values($parts)[0] === "api")) {
     $content = ob_get_clean();
     include ROOT . "layout.php";
-    
+} else {
+    ob_end_flush();
 }
-
 
 ?>
