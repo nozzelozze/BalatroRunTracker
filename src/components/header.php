@@ -1,14 +1,16 @@
 <header class="header">
     <div class="header__section">
-        <p>Balatro Runs</p>
-        <button>Runs</button>
-        <button>Leaderboards</button>
+        <a href="/">
+            <p>Balatro Runs</p>
+        </a>
+        <a href="/"><button>Runs</button></a>
+        <a href="/"><button>Leaderboards</button></a>
     </div>
     <div class="header__section">
-        <a href="./login">
+        <a href="/login">
             <button>Log In</button>
         </a>
-        <a href="./signup">
+        <a href="/signup">
             <button>Sign Up</button>
         </a>
     </div>

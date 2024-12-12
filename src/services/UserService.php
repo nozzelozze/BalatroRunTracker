@@ -1,28 +1,23 @@
 <?php
 require SERVICES."DBService.php";
-
-class UserService
+require SERVICES."Service.php";
+class UserService extends Service
 {
-    public static function addUser(string $name): void
+    public static function create($data = null)
     {
-        DBService::getInstance()->connection->query("INSERT INTO USERS (Username) VALUES ('$name');");
-    }
 
-    public static function getUsers(): array
+    }
+    public static function read($data = null)
     {
-        $result = DBService::getInstance()->connection->query("SELECT Username from USERS");
-        
-        $users = array();
-        if ($result->num_rows > 0)
+        if (isset($data["id"]))
         {
-            while($row = $result->fetch_assoc())
-            {
-                array_push($users, $row["Username"]);
-            }
+            $res = DBService::getInstance()->connection->query("SELECT Username from USERS WHERE USERS.UserID = ".$data["id"]);
+            return $res->fetch_assoc();
         }
-
-        return $users;
+        $res = DBService::getInstance()->connection->query("SELECT Username from USERS");
+        return $res->fetch_all(MYSQLI_ASSOC);
     }
+
 }
 
 ?>
