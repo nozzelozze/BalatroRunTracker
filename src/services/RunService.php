@@ -52,6 +52,11 @@ class RunService extends Service
         );
         return $res->fetch_all(MYSQLI_ASSOC);
     }
+
+    public static function delete($data = null)
+    {
+
+    }
 }
 
 ?>

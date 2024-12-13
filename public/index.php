@@ -8,6 +8,8 @@ $url = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $parts = array_filter(explode("/", $url));
 $apiRoutes = [
     "runs" => fn() => include API . "runs.php",
+    "logout" => fn() => include API . "logout.php",
+    "login" => fn() => include API . "login.php",
 ];
 
 $apiRouter = new Router($apiRoutes);

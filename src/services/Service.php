@@ -11,6 +11,7 @@ abstract class Service
 
     public abstract static function create($data = null);
     public abstract static function read($data = null);
+    public abstract static function delete($data = null);
 }
 
 ?>

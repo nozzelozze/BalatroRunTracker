@@ -1,17 +1,29 @@
 <?php
 
-function handleApiRequest(Service $service)
+function handleApiRequest(callable $postHandler = null, callable $getHandler = null)
 {
     header("Content-Type: application/json");
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $data = json_decode(file_get_contents('php://input'), true);
-        $response = $service::create($data);
-        echo json_encode($response);
+        if (!isset($postHandler))
+        {
+            http_response_code(405);
+        } else
+        {
+            $response = $postHandler($data);
+            echo json_encode($response);
+        }
     } else if ($_SERVER["REQUEST_METHOD"] == "GET")
     {
-        $response = $service::read($_GET);
-        echo json_encode($response);
+        if (!isset($getHandler))
+        {
+            http_response_code(405);
+        } else
+        {
+            $response = $getHandler($_GET);
+            echo json_encode($response);
+        }
     } else
     {
         http_response_code(405);
