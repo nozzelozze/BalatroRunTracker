@@ -23,13 +23,15 @@ $routes = [
 
 $router = new Router($routes);
 
-$router->route(array_values($parts)[0]);
+$base = isset(array_values($parts)[0]) ? array_values($parts)[0] : "";
 
-if (!(array_values($parts)[0] === "api")) {
+$router->route($base);
+
+if (!($base === "api")) {
     $content = ob_get_clean();
     include ROOT . "layout.php";
 } else {
     ob_end_flush();
-}
+}   
 
 ?>
