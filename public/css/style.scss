@@ -1,11 +1,11 @@
 @use "Utils/palette" as palette;
 @use "Misc/misc" as misc;
-
+@use "Pages/user";
 
 @font-face
 {
     font-family: "m6x11";
-    src: url("./m6x11.ttf");
+    src: url("../assets/fonts/m6x11.ttf");
 }
 
 a {

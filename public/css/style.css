@@ -8,9 +8,13 @@ Uses function for static colors just to remain consistent
 Misc classes
 
 */
+.user {
+  background-color: red;
+}
+
 @font-face {
   font-family: "m6x11";
-  src: url("./m6x11.ttf");
+  src: url("../assets/fonts/m6x11.ttf");
 }
 a {
   color: inherit;

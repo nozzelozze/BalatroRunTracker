@@ -8,4 +8,4 @@
 
 
 
-<h2><?= $user["Username"] ?></h2>
+<h2 class="user"><?= $user["Username"] ?></h2>
