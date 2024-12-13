@@ -1,0 +1,14 @@
+@use "../Misc/misc" as misc;
+@use "../Utils/palette" as palette;
+
+.not-found
+{
+    width: 100%;
+    height: 100%;
+    @include misc.flex-column();
+    
+    h2
+    {
+        margin: 0;
+    }
+}
