@@ -18,6 +18,7 @@ $routes = [
     "login" => fn() => include VIEWS . "login" . $i,
     "signup" => fn() => include VIEWS . "signup" . $i,
     "user" => fn() => include VIEWS . "user" . $i,
+    "new" => fn() => include VIEWS . "new" . $i,
     "api" => fn() => $apiRouter->route(array_values($parts)[1])
 ];
 
