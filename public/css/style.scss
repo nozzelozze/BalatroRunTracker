@@ -1,6 +1,8 @@
 @use "Utils/palette" as palette;
 @use "Misc/misc" as misc;
+
 @use "Pages/user";
+@use "Pages/login";
 
 @font-face
 {
@@ -83,5 +85,23 @@ footer
         {
             margin: 0px;
         }
+    }
+}
+
+.access-screen
+{
+    width: 100%;
+    @include misc.flex-column();
+
+    a {p
+    {
+        margin: 5px;
+        font-size: x-small;
+    }}
+    
+    form
+    {
+        width: 50%; 
+        @include misc.flex-column(10px);
     }
 }

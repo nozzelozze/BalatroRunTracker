@@ -86,4 +86,25 @@ footer {
 }
 .runs__card p {
   margin: 0px;
+}
+
+.access-screen {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+}
+.access-screen a p {
+  margin: 5px;
+  font-size: x-small;
+}
+.access-screen form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }/*# sourceMappingURL=style.css.map */
