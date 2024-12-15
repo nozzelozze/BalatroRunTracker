@@ -9,3 +9,12 @@ const submit = () =>
 }
 
 window.submit = submit
+
+
+
+const logout = () =>
+{
+    new ApiClient().GET("logout", {})
+}
+
+window.logout = logout;

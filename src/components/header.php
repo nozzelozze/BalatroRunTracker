@@ -8,9 +8,7 @@
         <a href="/new"><button>Submit run</button></a>
     </div>
     <div class="header__section">
-        <a href="/api/logout">
-            <button>Log out</button>
-        </a>
+            <button onclick="logout()">Log out</button>
         <a href="/login">
             <button>Log In</button>
         </a>
