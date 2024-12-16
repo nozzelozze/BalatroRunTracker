@@ -1,6 +1,6 @@
 
 /*
-Uses the colors from the actual Balatro color palette
+Website palette
 
 Uses function for static colors just to remain consistent
 */
@@ -10,13 +10,24 @@ Uses function for static colors just to remain consistent
     @return #ffffff;
 }
 
+@function background($shade: 1)
+{
+    $shade: max(1, min($shade, 3));
+    $background: map-get((
+        1 : #1E252B,
+        2: #262D34,
+        3: #444b5f
+    ), $shade);
+    @return $background;
+}
+
 @function black($shade: 1)
 {
     $shade: max(1, min($shade, 3));
     $black: map-get((
-        1 : #0D2B45,
-        2: #203C56,
-        3: #444b5f
+        1 : #121214,
+        2: #18181B,
+        3: #2F2F34
     ), $shade);
     @return $black;
 }

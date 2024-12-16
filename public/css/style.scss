@@ -26,7 +26,7 @@ a {
 
 body
 {
-    background-color: palette.black();
+    background-color: palette.background();
     color: palette.white();
     @include misc.flex-column(8px);
 }
@@ -34,11 +34,11 @@ body
 
 %site-section
 {
-    background-color: palette.black(2);
+    background-color: palette.background(2);
     padding: 10px;
     min-height: 30px;
     width: 100%;
-    max-width: 900px;
+    max-width: 1200px;
     @include misc.rounded(1);
 }
 
@@ -50,14 +50,19 @@ body
     justify-content: space-between;
     &__section
     {
-        @include misc.flex-row(5px);
+        @include misc.flex-row(10px);
         img
         {
-            @include misc.rounded(1);
+            @include misc.rounded(2);
         }
     }
+    &__logo-text
+    {
+        font-size: x-large;
+        color: palette.white();
+    }
+    min-height: 75px;
 }
-
 
 main
 {
@@ -71,6 +76,56 @@ footer
     padding-block: 0px;
 }
 
+$button-variants:
+(
+    blue:  (palette.blue(1),  palette.blue(3)),
+    red:   (palette.red(1),   palette.red(3)),
+    green: (palette.green(1), palette.green(3)),
+    black: (palette.black(1), palette.black(3))
+);
+
+button
+{
+    font-size: large;
+    @include misc.padding(2);
+    outline: none;
+    border: none;
+    @include misc.rounded(1);
+    transition-duration: .2s;
+}
+.button
+{
+    @each $name, $colors in $button-variants
+    {
+        &--#{$name}
+        {
+            @if $name == black {
+                color: white;
+            }
+
+            background-color: nth($colors, 1);
+
+            &:hover {
+                background-color: nth($colors, 2);
+            }
+        }
+    }
+}
+
+.user-badge
+{
+    @include misc.flex-row(5px);
+    &__avatar
+    {
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+    }
+    &__name
+    {
+
+    }
+}
 
 
 .runs
@@ -91,7 +146,7 @@ footer
     }
 }
 
-.commments
+.comments
 {
     @include misc.flex-row(20px);
     justify-content: start;
