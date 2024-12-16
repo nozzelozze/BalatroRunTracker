@@ -33,7 +33,7 @@ $router->route($base);
 
 if (!($base === "api")) {
     $content = ob_get_clean();
-    include ROOT . "layout.php";
+    include UI . "layout.php";
 } else {
     ob_end_flush();
 }   
