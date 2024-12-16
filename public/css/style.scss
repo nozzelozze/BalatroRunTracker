@@ -51,9 +51,9 @@ body
     &__section
     {
         @include misc.flex-row(5px);
-        button
+        img
         {
-
+            @include misc.rounded(1);
         }
     }
 }

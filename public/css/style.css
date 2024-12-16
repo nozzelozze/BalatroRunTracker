@@ -74,6 +74,10 @@ footer, main, .header {
   align-items: center;
   gap: 5px;
 }
+.header__section img {
+  border-radius: 5px;
+}
+
 main {
   min-height: 325px;
 }

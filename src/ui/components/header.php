@@ -1,5 +1,6 @@
 <header class="header">
     <div class="header__section">
+        <img src="assets/logo.webp" height="48px">
         <a href="/">
             <p>Balatro Runs</p>
         </a>
