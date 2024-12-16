@@ -8,7 +8,6 @@
         <a href="/new"><button>Submit run</button></a>
     </div>
     <div class="header__section">
-            <button onclick="logout()">Log out</button>
         <a href="/login">
             <button>Log In</button>
         </a>
