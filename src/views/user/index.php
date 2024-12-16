@@ -4,7 +4,7 @@
 
     $userId = basename($_SERVER["REQUEST_URI"]);
     $user = UserService::read((["id" => $userId]));
-    $runs = RunService::read(["UserID" => "1"])
+    $runs = RunService::read(["UserID" => $userId])
 
 ?>
 
