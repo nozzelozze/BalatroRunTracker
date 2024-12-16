@@ -91,6 +91,24 @@ footer
     }
 }
 
+.commments
+{
+    @include misc.flex-row(20px);
+    justify-content: start;
+    &__comment
+    {
+        height: 100px;
+        width: 100%;
+        background-color: palette.black(3);
+        @include misc.rounded(2);
+        @include misc.padding(2);
+        p
+        {
+            margin: 0px;
+        }
+    }
+}
+
 .access-screen
 {
     width: 100%;

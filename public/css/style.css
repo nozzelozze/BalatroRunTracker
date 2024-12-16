@@ -101,6 +101,25 @@ footer {
   margin: 0px;
 }
 
+.commments {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  justify-content: start;
+}
+.commments__comment {
+  height: 100px;
+  width: 100%;
+  background-color: #444b5f;
+  border-radius: 13px;
+  padding: 13px;
+}
+.commments__comment p {
+  margin: 0px;
+}
+
 .access-screen {
   width: 100%;
   display: flex;
