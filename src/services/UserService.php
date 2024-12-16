@@ -1,6 +1,7 @@
 <?php
-require SERVICES."DBService.php";
-require SERVICES."Service.php";
+require_once SERVICES."DBService.php";
+require_once SERVICES."Service.php";
+
 class UserService extends Service
 {
     public static function create($data = null)

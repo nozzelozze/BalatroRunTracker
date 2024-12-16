@@ -1,6 +1,6 @@
 <?php
-require SERVICES."DBService.php";
-require SERVICES."Service.php";
+require_once SERVICES."DBService.php";
+require_once SERVICES."Service.php";
 
 class RunService extends Service
 {
@@ -14,7 +14,7 @@ class RunService extends Service
 
     public static function read($data = null)
     {
-        if (isset($data["id"]))
+        if (isset($data["RunID"]))
         {
             $res = DBService::getInstance()->connection->query("
             SELECT
@@ -30,9 +30,29 @@ class RunService extends Service
             ON
                 RUNS.UserID = USERS.UserID
             WHERE
-                RUNS.RunID = " . $data["id"]
+                RUNS.RunID = " . $data["RunID"]
             );
             return $res->fetch_assoc();
+        }
+        if (isset($data["UserID"]))
+        {
+            $res = DBService::getInstance()->connection->query("
+            SELECT
+                RUNS.RunID,
+                RUNS.UserID,
+                USERS.Username,
+                RUNS.Score,
+                RUNS.SubmittedAt
+            FROM
+                RUNS
+            JOIN
+                USERS
+            ON
+                RUNS.UserID = USERS.UserID
+            WHERE
+                RUNS.UserID = " . $data["UserID"]
+            );
+            return $res->fetch_all(MYSQLI_ASSOC);
         }
         
         $res = DBService::getInstance()->connection->query("
