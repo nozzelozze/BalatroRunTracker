@@ -27,10 +27,20 @@ class ApiClient
                 "Content-Type": "application/json"
             }
         })
-        const content = await res.json()
-        return content
+        return res
     }
 
+    async DELETE(path)
+    {
+        const res = await fetch(`${config.API_URL}${path}`, {
+            method: "DELETE",
+            headers: {
+                "Accept": "application/json",
+                "Content-Type": "application/json"
+            }
+        })
+        return res
+    }
 }
 
 export default ApiClient

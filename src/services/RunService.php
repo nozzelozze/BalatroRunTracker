@@ -4,6 +4,19 @@ require_once SERVICES."Service.php";
 
 class RunService extends Service
 {
+    public static function delete($data = null)
+    {
+        if (!isset($data["RunID"]))
+        {
+            return false;
+        }
+        $res = DBService::getInstance()->connection->query("
+        DELETE FROM RUNS 
+            WHERE RUNS.RunID = ".$data["RunID"]
+        );
+        return $res;
+    }
+
     public static function create($data = null)
     {
         $res = DBService::getInstance()->connection->query("
@@ -69,14 +82,11 @@ class RunService extends Service
         ON
             RUNS.UserID = USERS.UserID "
          . (isset($data["orderBy"]) ? " ORDER BY " . $data["orderBy"] : "")
+         . (isset($data["reverse"]) && $data["reverse"] == true ? " ASC" : " DESC")
         );
         return $res->fetch_all(MYSQLI_ASSOC);
     }
 
-    public static function delete($data = null)
-    {
-
-    }
 }
 
 ?>

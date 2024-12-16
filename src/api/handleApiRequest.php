@@ -1,6 +1,10 @@
 <?php
 
-function handleApiRequest(callable $postHandler = null, callable $getHandler = null)
+function handleApiRequest(
+    callable $postHandler = null, 
+    callable $getHandler = null, 
+    callable $deleteHandler = null
+    )
 {
     header("Content-Type: application/json");
     if ($_SERVER["REQUEST_METHOD"] == "POST")
@@ -22,6 +26,16 @@ function handleApiRequest(callable $postHandler = null, callable $getHandler = n
         } else
         {
             $response = $getHandler($_GET);
+            echo json_encode($response);
+        }
+    } else if ($_SERVER["REQUEST_METHOD"] == "DELETE")
+    {
+        if (!isset($deleteHandler))
+        {
+            http_response_code(405);
+        } else
+        {
+            $response = $deleteHandler();
             echo json_encode($response);
         }
     } else

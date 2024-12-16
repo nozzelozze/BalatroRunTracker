@@ -1,6 +1,6 @@
 import "./events/forms.js";
+import "./events/buttonCallbacks.js"
 import ApiClient from "./api/ApiClient.js";
-
 
 
 const submit = () =>
