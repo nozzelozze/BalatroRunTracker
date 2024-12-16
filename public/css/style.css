@@ -46,19 +46,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
+  width: 100%;
 }
 
-footer, main, .header {
+footer, .header {
   background-color: #262D34;
   padding: 10px;
   min-height: 30px;
-  width: 100%;
+  border-radius: 10px;
   max-width: 1200px;
-  border-radius: 5px;
 }
 
 .header {
+  width: 100%;
   padding-block: 0px;
   display: flex;
   flex-direction: row;
@@ -66,38 +67,38 @@ footer, main, .header {
   align-items: center;
   gap: 0px;
   justify-content: space-between;
-  min-height: 75px;
+  min-height: 90px;
+  max-width: 1200px;
 }
 .header__section {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
-.header__section img {
-  border-radius: 13px;
+.header__section__logo {
+  border-radius: 15px;
+  height: 64px;
 }
 .header__logo-text {
-  font-size: x-large;
+  font-size: xx-large;
   color: #ffffff;
 }
 
-main {
-  min-height: 325px;
-}
-
 footer {
+  width: 100%;
   padding-block: 0px;
+  max-width: 1200px;
 }
 
 button {
-  font-size: large;
+  font-size: x-large;
   padding: 13px;
   outline: none;
   border: none;
-  border-radius: 5px;
-  transition-duration: 0.2s;
+  border-radius: 10px;
+  transition-duration: 0.4s;
 }
 
 .button--blue {
@@ -138,19 +139,58 @@ button {
   width: 30px;
   border-radius: 50%;
 }
+main {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 15% 60% 25%;
+}
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  justify-content: start;
+  margin-right: 15px;
+}
+.navigation__item--filter {
+  background-color: #262D34;
+  border-radius: 15px;
+  height: 200px;
+  width: 100%;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  justify-content: start;
+  margin-left: 15px;
+}
+.stats__item--jokers {
+  background-color: #262D34;
+  border-radius: 15px;
+  height: 350px;
+  width: 100%;
+}
+
 .runs {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
   justify-content: start;
 }
 .runs__card {
-  height: 100px;
-  width: 150px;
-  background-color: #2F2F34;
-  border-radius: 13px;
+  height: 175px;
+  width: 100%;
+  background-color: #262D34;
+  border-radius: 15px;
   padding: 13px;
 }
 .runs__card p {
@@ -168,8 +208,8 @@ button {
 .comments__comment {
   height: 100px;
   width: 100%;
-  background-color: #2F2F34;
-  border-radius: 13px;
+  background-color: #2C353D;
+  border-radius: 15px;
   padding: 13px;
 }
 .comments__comment p {

@@ -27,7 +27,7 @@ Uses function for static colors just to remain consistent
     $black: map-get((
         1 : #121214,
         2: #18181B,
-        3: #2F2F34
+        3: #2C353D
     ), $shade);
     @return $black;
 }

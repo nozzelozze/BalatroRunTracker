@@ -1,7 +1,7 @@
 <header class="header">
     <div class="header__section">
         <a href="/">
-            <img src="assets/logo.png" height="48px">
+            <img class="header__section__logo" src="/assets/logo.png">
         </a>
         <a href="/">
             <p class="header__logo-text">Balatro Runs</p>
@@ -15,11 +15,11 @@
             <button class="button--black">Log In</button>
         </a>
         <a href="/signup">
-            <button class="button--black">Sign Up</button>
+            <button class="button--black">Create Account</button>
         </a>
-        <div class="user-badge">
-            <img src="assets/logoAlternate.webp" class="user-badge__avatar">
+<!--         <div class="user-badge">
+            <img src="/assets/logoAlternate.webp" class="user-badge__avatar">
             <span class="user-badge__name">nozzelozze</span>
-        </div>
+        </div> -->
     </div>
 </header>

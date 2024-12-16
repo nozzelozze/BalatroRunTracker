@@ -21,14 +21,15 @@ a {
 *
 {
     font-family: "m6x11";
-    box-sizing:border-box
+    box-sizing: border-box
 }
 
 body
 {
     background-color: palette.background();
     color: palette.white();
-    @include misc.flex-column(8px);
+    @include misc.flex-column(16px);
+    width: 100%;
 }
 
 
@@ -37,43 +38,41 @@ body
     background-color: palette.background(2);
     padding: 10px;
     min-height: 30px;
-    width: 100%;
-    max-width: 1200px;
     @include misc.rounded(1);
+    max-width: 1200px;
 }
 
 .header
 {
+    width: 100%;
     @extend %site-section;
     padding-block: 0px;
     @include misc.flex-row();
     justify-content: space-between;
     &__section
     {
-        @include misc.flex-row(10px);
-        img
+        @include misc.flex-row(15px);
+        &__logo
         {
             @include misc.rounded(2);
+            height: 64px;
         }
     }
     &__logo-text
     {
-        font-size: x-large;
+        font-size: xx-large;
         color: palette.white();
     }
-    min-height: 75px;
-}
-
-main
-{
-    @extend %site-section;
-    min-height: 325px;
+    min-height: 90px;
+    max-width: 1200px;
 }
 
 footer
 {
+    width: 100%;
     @extend %site-section;
     padding-block: 0px;
+    max-width: 1200px;
 }
 
 $button-variants:
@@ -81,17 +80,17 @@ $button-variants:
     blue:  (palette.blue(1),  palette.blue(3)),
     red:   (palette.red(1),   palette.red(3)),
     green: (palette.green(1), palette.green(3)),
-    black: (palette.black(1), palette.black(3))
+    black: (palette.black(1), #2F2F34)
 );
 
 button
 {
-    font-size: large;
+    font-size: x-large;
     @include misc.padding(2);
     outline: none;
     border: none;
     @include misc.rounded(1);
-    transition-duration: .2s;
+    transition-duration: .4s;
 }
 .button
 {
@@ -99,13 +98,15 @@ button
     {
         &--#{$name}
         {
-            @if $name == black {
+            @if $name == black 
+            {
                 color: white;
             }
 
             background-color: nth($colors, 1);
 
-            &:hover {
+            &:hover 
+            {
                 background-color: nth($colors, 2);
             }
         }
@@ -127,16 +128,60 @@ button
     }
 }
 
+main
+{
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 15% 60% 25%;
+}
+
+@mixin sidebar-item($height)
+{
+    background-color: palette.background(2);
+    @include misc.rounded(2);
+    height: $height;
+    width: 100%;
+}
+
+.navigation
+{
+    @include misc.flex-column(15px);
+    justify-content: start;
+    margin-right: 15px;
+    &__item
+    {
+        &--filter
+        {
+            @include sidebar-item(200px);
+        }
+    }
+}
+
+
+.stats
+{
+    @include misc.flex-column(15px);
+    justify-content: start;
+    margin-left: 15px;
+    &__item
+    {
+        &--jokers
+        {
+            @include sidebar-item(350px);
+        }
+    }
+}
 
 .runs
 {
-    @include misc.flex-row(20px);
+    @include misc.flex-column(20px);
     justify-content: start;
     &__card
     {
-        height: 100px;
-        width: 150px;
-        background-color: palette.black(3);
+        height: 175px;
+        width: 100%;
+        background-color: palette.background(2);
         @include misc.rounded(2);
         @include misc.padding(2);
         p

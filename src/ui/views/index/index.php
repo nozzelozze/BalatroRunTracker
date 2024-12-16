@@ -1,24 +1,24 @@
 <?php
 require SERVICES . "RunService.php";
 $newRuns = RunService::read(["orderBy" => "RUNS.SubmittedAt"]);
-$highScoreRuns = RunService::read(["orderBy" => "RUNS.Score"]);
 ?>
 
-<h2>New runs</h2>
+<div class="navigation">
+    <div class="navigation__item navigation__item--filter">
+
+    </div>
+</div>
+
 <div class="runs">
     <?php
-    foreach ($newRuns as $run)
-    {
-        include COMPONENTS."runCard.php";
+    foreach ($newRuns as $run) {
+        include COMPONENTS . "runCard.php";
     }
     ?>
 </div>
-<h2>Highests scoring runs</h2>
-<div class="runs">
-    <?php
-    foreach ($highScoreRuns as $run)
-    {
-        include COMPONENTS."runCard.php";
-    }
-    ?>
+
+<div class="stats">
+    <div class="stats__item stats__item--jokers">
+
+    </div>
 </div>
