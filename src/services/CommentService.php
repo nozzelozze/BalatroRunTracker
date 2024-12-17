@@ -21,8 +21,14 @@ class CommentService extends Service
                 COMMENTS.CommentID,
                 COMMENTS.Content,
                 COMMENTS.CreatedAt
+                USERS.Username,
+                COMMENTS.UserID
             FROM
                 COMMENTS
+            JOIN
+                USERS
+            ON
+                COMMENTS.UserID = USERS.UserID
             WHERE
                 COMMENTS.UserID = " . $data["UserID"]
             );
