@@ -12,7 +12,7 @@ class UserService extends Service
     {
         if (isset($data["id"]))
         {
-            $res = DBService::getInstance()->connection->query("SELECT Username from USERS WHERE USERS.UserID = ".$data["id"]);
+            $res = DBService::getInstance()->connection->query("SELECT Username, CreatedAt from USERS WHERE USERS.UserID = ".$data["id"]);
             return $res->fetch_assoc();
         }
         $res = DBService::getInstance()->connection->query("SELECT Username from USERS");

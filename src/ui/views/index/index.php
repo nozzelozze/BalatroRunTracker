@@ -3,6 +3,8 @@ require SERVICES . "RunService.php";
 $newRuns = RunService::read(["orderBy" => "RUNS.SubmittedAt"]);
 ?>
 
+<div class="main-page">
+
 <div class="navigation">
     <div class="navigation__item navigation__item--filter">
         <div class="menu" id="menu">
@@ -77,4 +79,6 @@ $newRuns = RunService::read(["orderBy" => "RUNS.SubmittedAt"]);
 
         </div>
     </div>
+</div>
+
 </div>
