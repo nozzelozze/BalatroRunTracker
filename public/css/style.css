@@ -25,6 +25,44 @@ Misc classes
   margin: 0;
 }
 
+.menu {
+  width: 100%;
+}
+.menu__item {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  margin: 10px 0;
+  padding: 15px;
+  transition: background-color 0.15s ease;
+  cursor: pointer;
+}
+.menu__item--active, .menu__item:hover {
+  background-color: #444b5f;
+}
+.menu__icon {
+  font-size: x-large;
+  margin-right: 15px;
+}
+.menu__icon img {
+  width: 45px;
+  border-radius: 10px;
+}
+.menu__title {
+  font-size: 20px;
+  margin: 0px;
+}
+
+::-moz-selection {
+  color: white;
+  background: lightblue;
+}
+
+::selection {
+  color: white;
+  background: lightblue;
+}
+
 @font-face {
   font-family: "m6x11";
   src: url("../assets/fonts/m6x11.ttf");
@@ -50,12 +88,12 @@ body {
   width: 100%;
 }
 
-footer, .header {
+.header {
   background-color: #262D34;
   padding: 10px;
   min-height: 30px;
   border-radius: 10px;
-  max-width: 1200px;
+  max-width: 1400px;
 }
 
 .header {
@@ -68,7 +106,7 @@ footer, .header {
   gap: 0px;
   justify-content: space-between;
   min-height: 90px;
-  max-width: 1200px;
+  max-width: 1400px;
 }
 .header__section {
   display: flex;
@@ -84,12 +122,6 @@ footer, .header {
 .header__logo-text {
   font-size: xx-large;
   color: #ffffff;
-}
-
-footer {
-  width: 100%;
-  padding-block: 0px;
-  max-width: 1200px;
 }
 
 button {
@@ -141,9 +173,9 @@ button {
 }
 main {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   display: grid;
-  grid-template-columns: 15% 60% 25%;
+  grid-template-columns: 20% 60% 20%;
 }
 
 .navigation {
@@ -158,8 +190,10 @@ main {
 .navigation__item--filter {
   background-color: #262D34;
   border-radius: 15px;
-  height: 200px;
+  height: -moz-fit-content;
+  height: fit-content;
   width: 100%;
+  padding: 10px;
 }
 
 .stats {
@@ -171,10 +205,22 @@ main {
   justify-content: start;
   margin-left: 15px;
 }
-.stats__item--jokers {
+.stats__item {
+  width: 100%;
   background-color: #262D34;
   border-radius: 15px;
-  height: 350px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  padding: 10px;
+}
+.stats__stat {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  justify-content: start;
   width: 100%;
 }
 

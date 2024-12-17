@@ -7,6 +7,8 @@
 @use "Pages/new";
 @use "Pages/run";
 
+@use "Utils/globals";
+
 @font-face
 {
     font-family: "m6x11";
@@ -39,7 +41,7 @@ body
     padding: 10px;
     min-height: 30px;
     @include misc.rounded(1);
-    max-width: 1200px;
+    max-width: 1400px;
 }
 
 .header
@@ -64,16 +66,9 @@ body
         color: palette.white();
     }
     min-height: 90px;
-    max-width: 1200px;
+    max-width: 1400px;
 }
 
-footer
-{
-    width: 100%;
-    @extend %site-section;
-    padding-block: 0px;
-    max-width: 1200px;
-}
 
 $button-variants:
 (
@@ -131,9 +126,9 @@ button
 main
 {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1400px;
     display: grid;
-    grid-template-columns: 15% 60% 25%;
+    grid-template-columns: 20% 60% 20%;
 }
 
 @mixin sidebar-item($height)
@@ -142,6 +137,7 @@ main
     @include misc.rounded(2);
     height: $height;
     width: 100%;
+    padding: 10px;
 }
 
 .navigation
@@ -153,7 +149,7 @@ main
     {
         &--filter
         {
-            @include sidebar-item(200px);
+            @include sidebar-item(fit-content);
         }
     }
 }
@@ -166,10 +162,14 @@ main
     margin-left: 15px;
     &__item
     {
-        &--jokers
-        {
-            @include sidebar-item(350px);
-        }
+        width: 100%;
+        @include sidebar-item(fit-content);
+    }
+    &__stat
+    {
+        @include misc.flex-row(10px);
+        justify-content: start;
+        width: 100%;
     }
 }
 

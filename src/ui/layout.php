@@ -10,6 +10,7 @@
     <link rel="manifest" href="/assets/site.webmanifest">
     <title>Balatro Runs</title>
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/326a6386f4.js" crossorigin="anonymous"></script>
     <script src="/js/main.js" type="module"></script>
 </head>
 
