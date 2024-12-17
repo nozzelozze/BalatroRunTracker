@@ -73,14 +73,19 @@ Misc classes
 .not-found {
   width: 100%;
   height: 100%;
+  padding-top: 35px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0px;
 }
-.not-found h2 {
-  margin: 0;
+.not-found__image {
+  max-width: 150px;
+}
+.not-found__title {
+  font-size: 5rem;
+  margin: 25px;
 }
 
 .run-page {
