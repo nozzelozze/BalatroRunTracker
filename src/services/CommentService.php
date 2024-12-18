@@ -22,6 +22,7 @@ class CommentService extends Service
                 COMMENTS.Content,
                 COMMENTS.CreatedAt
                 USERS.Username,
+                USERS.UserID,
                 COMMENTS.UserID
             FROM
                 COMMENTS
@@ -40,9 +41,12 @@ class CommentService extends Service
             SELECT
                 COMMENTS.CommentID,
                 COMMENTS.Content,
-                COMMENTS.CreatedAt
+                COMMENTS.CreatedAt,
+                USERS.Username,
+                USERS.UserID
             FROM
                 COMMENTS
+            JOIN USERS ON COMMENTS.UserID = Users.UserID 
             WHERE
                 COMMENTS.RunID = " . $data["RunID"]
             );
