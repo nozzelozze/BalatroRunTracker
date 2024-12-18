@@ -69,45 +69,6 @@ body
     max-width: 1400px;
 }
 
-
-$button-variants:
-(
-    blue:  (palette.blue(1),  palette.blue(3)),
-    red:   (palette.red(1),   palette.red(3)),
-    green: (palette.green(1), palette.green(3)),
-    black: (palette.black(1), #2F2F34)
-);
-
-button
-{
-    font-size: x-large;
-    @include utils.padding(2);
-    outline: none;
-    border: none;
-    @include utils.rounded(1);
-    transition-duration: .4s;
-}
-.button
-{
-    @each $name, $colors in $button-variants
-    {
-        &--#{$name}
-        {
-            @if $name == black 
-            {
-                color: white;
-            }
-
-            background-color: nth($colors, 1);
-
-            &:hover 
-            {
-                background-color: nth($colors, 2);
-            }
-        }
-    }
-}
-
 main
 {
     width: 100%;
@@ -160,41 +121,5 @@ main
         @include utils.flex-row(10px);
         justify-content: start;
         width: 100%;
-    }
-}
-
-.comments
-{
-    @include utils.flex-row(20px);
-    justify-content: start;
-    &__comment
-    {
-        height: 100px;
-        width: 100%;
-        background-color: palette.black(3);
-        @include utils.rounded(2);
-        @include utils.padding(2);
-        p
-        {
-            margin: 0px;
-        }
-    }
-}
-
-.access-screen
-{
-    width: 100%;
-    @include utils.flex-column();
-
-    a {p
-    {
-        margin: 5px;
-        font-size: x-small;
-    }}
-    
-    form
-    {
-        width: 50%; 
-        @include utils.flex-column(10px);
     }
 }
