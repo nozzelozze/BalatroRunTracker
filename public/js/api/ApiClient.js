@@ -13,8 +13,7 @@ class ApiClient
             },
             body: JSON.stringify(data)
         })
-        const content = await res.json()
-        return content
+        return res
     }
 
     async GET(path, params)

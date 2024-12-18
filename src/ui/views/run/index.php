@@ -66,8 +66,8 @@ $comments = CommentService::read(["RunID" => $runId]);
 
         <div class="run__comments__input">
             <img class="run__comments__avatar" src="/assets/logo.png">
-            <input type="text" class="run__comments__text-input" placeholder="Add comment..." />
-            <button class="run__comments__submit">Comment</button>
+            <input type="text" class="run__comments__text-input" id="comment-input" placeholder="Add comment..." />
+            <button class="run__comments__submit" onclick="onComment(<?= $run['RunID'] ?>, <?= $run['UserID'] ?>, '<?= $run['Username'] ?>')">Comment</button>
         </div>
 
         <div class="run__comments__list">

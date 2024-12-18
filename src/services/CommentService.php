@@ -8,8 +8,9 @@ class CommentService extends Service
     {
         $res = DBService::getInstance()->connection->query("
         INSERT INTO COMMENTS (UserID, RunID, Content)
-        VALUES (1, ".intval($data["RunID"]).", ".$data["Content"].")");
-        return $res;
+        VALUES (1, " . intval($data["RunID"]) . ", '" . $data["Content"] . "')
+    ");
+    return $res;
     }
     
     public static function read($data = null)

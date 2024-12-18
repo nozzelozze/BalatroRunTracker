@@ -1,5 +1,5 @@
 <?php
-require SERVICES."RunService.php";
+require SERVICES."CommentService.php";
 require API."handleApiRequest.php";
-handleApiRequest([RunService::class, "create"], [RunService::class, "read"])
+handleApiRequest([CommentService::class, "create"], [CommentService::class, "read"])
 ?>
