@@ -1,12 +1,14 @@
 <div class="access-screen">
-    <h3>Sign Up</h3>
-    <form id="signup-form">
-        <input required type="text" name="Username" id="Username" placeholder="Username" />
-        <input required type="password" name="Password" id="Password" placeholder="Password" />
+    <div class="access-screen__title">
+        Sign Up
+    </div>
+    <form class="access-screen__form" id="login-form">
+        <input class="access-screen__input" required type="text" name="Username" id="Username" placeholder="Username" />
+        <input class="access-screen__input" required type="password" name="Password" id="Password" placeholder="Password" />
 
-        <button type="submit">Sign Up</button>
+        <button class="access-screen__input button--green" type="submit">Login</button>
     </form>
-    <a href="/login">
-        <p>or, login</p>
+    <a class="access-screen__tip" href="/login">
+        or, login
     </a>
 </div>

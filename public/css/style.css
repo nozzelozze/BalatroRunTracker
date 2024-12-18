@@ -165,13 +165,6 @@ Uses function for static colors just to remain consistent
 }
 .run__comments__text-input {
   flex: 1;
-  font-size: 1rem;
-  padding: 1.2rem;
-  background-color: #444b5f;
-  border-radius: 10px;
-  padding: 0.7rem;
-  color: #fff;
-  border: none;
 }
 .run__comments__submit {
   font-size: medium;
@@ -339,15 +332,25 @@ button {
 
 .access-screen {
   width: 100%;
+  padding-top: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0px;
+  gap: 20px;
 }
-.access-screen a p {
-  margin: 5px;
-  font-size: x-small;
+.access-screen__title {
+  font-size: 3rem;
+}
+.access-screen__form {
+  width: 100%;
+}
+.access-screen__input {
+  width: 100%;
+  font-size: xx-large;
+}
+.access-screen__tip {
+  font-size: x-large;
 }
 .access-screen form {
   width: 50%;
@@ -356,6 +359,16 @@ button {
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+
+input {
+  font-size: 1rem;
+  padding: 1.2rem;
+  background-color: #444b5f;
+  border-radius: 10px;
+  color: #fff;
+  border: none;
+  padding: 0.7rem;
 }
 
 ::-moz-selection {
