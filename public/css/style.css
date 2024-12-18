@@ -3,11 +3,6 @@ Website palette
 
 Uses function for static colors just to remain consistent
 */
-/*
-
-Misc classes
-
-*/
 .user {
   width: 100%;
   display: flex;
@@ -88,52 +83,54 @@ Misc classes
   margin: 25px;
 }
 
-.run-page {
-  background: #f9f9f9;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-.run-page__header {
-  border-bottom: 1px solid #ddd;
-  padding-bottom: 1rem;
+.run__header {
+  padding: 1.2rem;
+  background-color: #fd5f54;
+  border-radius: 10px;
   margin-bottom: 2rem;
+  color: white;
 }
-.run-page__title {
+.run__stat {
+  width: 100%;
+  height: 75px;
+  padding: 1.2rem;
+  background-color: #e6eff7;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  justify-content: space-between;
+}
+.run__stat__title {
+  color: rgb(52, 52, 52);
+  font-size: xx-large;
+}
+.run__stat__value {
+  padding: 1.2rem;
+  background-color: #1E252B;
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  font-size: xx-large;
+}
+.run__stats {
+  padding: 1.2rem;
+  background-color: #262D34;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.run__title {
   font-size: 2rem;
   margin: 0 0 0.5rem;
-  color: #333;
 }
-.run-page__metadata {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 1rem;
-  color: #666;
-}
-.run-page__user-link {
-  color: #007bff;
-  text-decoration: none;
-}
-.run-page__user-link:hover {
-  text-decoration: underline;
-}
-.run-page__username {
-  font-weight: bold;
-}
-.run-page__score {
-  background: #eee;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-weight: 600;
-}
-.run-page__submitted-at {
-  font-style: italic;
-  color: #999;
-}
-.run-page__comments {
+.run__comments {
   background: #0f0f0f;
   color: #fff;
   padding: 1rem 2rem;
@@ -141,27 +138,27 @@ Misc classes
   margin-top: 2rem;
   font-family: Arial, sans-serif;
 }
-.run-page__comments-title {
+.run__comments-title {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid #333;
   padding-bottom: 0.5rem;
 }
-.run-page__comments-input {
+.run__comments-input {
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-bottom: 0.5rem;
 }
-.run-page__comments-avatar {
+.run__comments-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
-.run-page__comments-avatar--placeholder {
+.run__comments-avatar--placeholder {
   background: #555;
 }
-.run-page__comments-text-input {
+.run__comments-text-input {
   flex: 1;
   padding: 0.5rem;
   font-size: 1rem;
@@ -170,19 +167,19 @@ Misc classes
   border-radius: 2px;
   color: #fff;
 }
-.run-page__comments-text-input::-moz-placeholder {
+.run__comments-text-input::-moz-placeholder {
   color: #999;
 }
-.run-page__comments-text-input::placeholder {
+.run__comments-text-input::placeholder {
   color: #999;
 }
-.run-page__comments-actions {
+.run__comments-actions {
   display: flex;
   justify-content: flex-end;
   gap: 0.5rem;
   margin-bottom: 1rem;
 }
-.run-page__comments-actions button {
+.run__comments-actions button {
   background: transparent;
   color: #3ea6ff;
   border: none;
@@ -191,56 +188,56 @@ Misc classes
   cursor: pointer;
   border-radius: 2px;
 }
-.run-page__comments-actions button:hover {
+.run__comments-actions button:hover {
   background: #181818;
 }
-.run-page__comments-actions-cancel {
+.run__comments-actions-cancel {
   color: #999;
 }
-.run-page__comments-actions-submit {
+.run__comments-actions-submit {
   color: #3ea6ff;
 }
-.run-page__comments-list .comment {
+.run__comments-list .comment {
   display: flex;
   margin-bottom: 1.5rem;
 }
-.run-page__comments-list .comment__avatar {
+.run__comments-list .comment__avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
   background: #555;
   margin-right: 1rem;
 }
-.run-page__comments-list .comment__body {
+.run__comments-list .comment__body {
   flex: 1;
 }
-.run-page__comments-list .comment__header {
+.run__comments-list .comment__header {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
 }
-.run-page__comments-list .comment__header .comment__username {
+.run__comments-list .comment__header .comment__username {
   font-weight: bold;
   color: #fff;
 }
-.run-page__comments-list .comment__header .comment__time {
+.run__comments-list .comment__header .comment__time {
   color: #999;
   font-size: 0.75rem;
 }
-.run-page__comments-list .comment__content {
+.run__comments-list .comment__content {
   font-size: 1rem;
   line-height: 1.4;
   margin-bottom: 0.5rem;
   color: #fff;
 }
-.run-page__comments-list .comment__footer {
+.run__comments-list .comment__footer {
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.run-page__comments-list .comment__footer .comment__action {
+.run__comments-list .comment__footer .comment__action {
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -251,10 +248,10 @@ Misc classes
   font-size: 0.875rem;
   padding: 0;
 }
-.run-page__comments-list .comment__footer .comment__action:hover {
+.run__comments-list .comment__footer .comment__action:hover {
   color: #fff;
 }
-.run-page__comments-list .comment--reply {
+.run__comments-list .comment--reply {
   margin-left: 3rem;
 }
 
@@ -284,6 +281,44 @@ Misc classes
 .menu__title {
   font-size: 20px;
   margin: 0px;
+}
+
+.user-badge {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  align-items: start;
+  justify-content: start;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.2rem;
+  border-radius: 10px;
+  transition-duration: 0.3s;
+}
+.user-badge__avatar {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+}
+.user-badge__username {
+  font-size: 1em;
+}
+.user-badge__date {
+  font-size: 0.8em;
+  color: rgb(227, 242, 255);
+}
+.user-badge__metadata {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  align-items: start;
+}
+.user-badge:hover {
+  background-color: rgba(222, 222, 222, 0.3568627451);
 }
 
 ::-moz-selection {
@@ -392,18 +427,6 @@ button {
   background-color: #2F2F34;
 }
 
-.user-badge {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-}
-.user-badge__avatar {
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-}
 main {
   width: 100%;
   max-width: 1400px;

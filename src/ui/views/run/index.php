@@ -7,33 +7,71 @@ $run = RunService::read(["RunID" => $runId]);
 $comments = CommentService::read(["RunID" => $runId]);
 ?>
 
-<article class="run-page">
-    <header class="run-page__header">
-        <h1 class="run-page__title">Run #<?= htmlspecialchars($run["RunID"]) ?></h1>
-        <div class="run-page__metadata">
-            <a href="/user/<?= htmlspecialchars($run["UserID"]) ?>" class="run-page__user-link">
-                <span class="run-page__username"><?= htmlspecialchars($run["Username"]) ?></span>
-            </a>
-            <span class="run-page__score">Score: <?= htmlspecialchars($run["Score"]) ?></span>
-            <time datetime="<?= htmlspecialchars($run["SubmittedAt"]) ?>"
-                class="run-page__submitted-at"><?= htmlspecialchars($run["SubmittedAt"]) ?></time>
-        </div>
+<div class="run">
+    <header class="run__header">
+        <h1 class="run__title">The Banana Run</h1>
+        <a class="user-badge" href="/user/<?= $run["UserID"] ?>">
+            <img class="user-badge__avatar" src="/assets/logo.png">
+            <div class="user-badge__metadata">
+                <div class="user-badge__username">
+                    <?= $run["Username"] ?>
+                </div>
+                <div class="user-badge__date">
+                    Submitted
+                    <?= (date("Y") - date("Y", strtotime($run["SubmittedAt"]))) < 1 ? "less than a year ago" : (date("Y") - date("Y", strtotime($run["SubmittedAt"]))) . " years ago" ?>
+                </div>
+            </div>
+        </a>
     </header>
+    <div class="run__stats">
+        <div class="run__stat">
+            <h1 class="run__stat__title">
+                Best Hand
+            </h1>
+            <div class="run__stat__value">
+                42,204
+            </div>
+        </div>
+        <div class="run__stat">
+            <h1 class="run__stat__title">
+                Most Played Hand
+            </h1>
+            <div class="run__stat__value">
+                Two Pair (22)
+            </div>
+        </div>
+        <div class="run__stat">
+            <h1 class="run__stat__title">
+                Cards Played
+            </h1>
+            <div class="run__stat__value">
+                223
+            </div>
+        </div>
+        <div class="run__stat">
+            <h1 class="run__stat__title">
+                Ante
+            </h1>
+            <div class="run__stat__value">
+                7
+            </div>
+        </div>
+    </div>
 
-<!--     <section class="run-page__comments">
-        <h2 class="run-page__comments-title">Comments</h2>
+    <!--     <section class="run__comments">
+        <h2 class="run__comments-title">Comments</h2>
 
-        <div class="run-page__comments-input">
-            <div class="run-page__comments-avatar run-page__comments-avatar--placeholder"></div>
-            <input type="text" class="run-page__comments-text-input" placeholder="Add a public comment..." />
+        <div class="run__comments-input">
+            <div class="run__comments-avatar run__comments-avatar--placeholder"></div>
+            <input type="text" class="run__comments-text-input" placeholder="Add a public comment..." />
         </div>
 
-        <div class="run-page__comments-actions">
-            <button class="run-page__comments-cancel">Cancel</button>
-            <button class="run-page__comments-submit">Comment</button>
+        <div class="run__comments-actions">
+            <button class="run__comments-cancel">Cancel</button>
+            <button class="run__comments-submit">Comment</button>
         </div>
 
-        <div class="run-page__comments-list">
+        <div class="run__comments-list">
             <?php foreach ($comments as $comment): ?>
                 <div class="comment">
                     <div class="comment__avatar comment__avatar--placeholder"></div>
@@ -59,4 +97,4 @@ $comments = CommentService::read(["RunID" => $runId]);
         </div>
     </section> -->
 
-</article>
+</div>

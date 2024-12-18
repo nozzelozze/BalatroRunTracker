@@ -1,5 +1,5 @@
 @use "./palette" as palette;
-@use "../Misc/misc" as misc;
+@use "../utils/utils" as utils;
 
 $bg-color: #1e1e2f;
 $bg-item: #2b2b3c;
@@ -35,7 +35,7 @@ $badge-color: #ff5722;
         img
         {
             width: 45px;
-            @include misc.rounded(1);
+            @include utils.rounded(1);
         }
     }
 
@@ -46,7 +46,36 @@ $badge-color: #ff5722;
     }
 }
 
-
+.user-badge
+{
+    @include utils.flex-row(5px);
+    align-items: start;
+    justify-content: start;
+    width: fit-content;
+    padding: .2rem;
+    &__avatar
+    {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+    }
+    &__username
+    {
+        font-size: 1em;
+    }
+    &__date
+    {
+        font-size: .8em;
+        color: rgb(227, 242, 255)
+    }
+    &__metadata
+    {
+        @include utils.flex-column(2px);
+        align-items: start;
+    }
+    @include utils.rounded(1);
+    @include utils.hover-effect();
+}
 
 ::-moz-selection
 {

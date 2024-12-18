@@ -1,9 +1,4 @@
-
-/*
-
-Misc classes
-
-*/
+@use "./palette" as palette;
 
 @mixin flex-row($spacing: 0px)
 {
@@ -47,4 +42,21 @@ Misc classes
     ), $level);
 
     padding: $pad;
+}
+
+
+@mixin box($background-color)
+{
+    padding: 1.2rem;
+    background-color: $background-color;
+    @include rounded(1);
+}
+
+@mixin hover-effect($color: #dedede5b)
+{
+    transition-duration: .3s;
+    &:hover
+    {
+        background-color: $color;
+    }
 }
