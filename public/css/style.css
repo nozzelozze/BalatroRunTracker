@@ -260,6 +260,48 @@ Uses function for static colors just to remain consistent
   background-color: rgba(222, 222, 222, 0.3568627451);
 }
 
+.runs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  justify-content: start;
+}
+.runs__card {
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  align-items: start;
+  padding: 1.2rem;
+  background-color: #262D34;
+  border-radius: 10px;
+}
+.runs__card__title {
+  width: 100%;
+  font-size: 1.8rem;
+  border-bottom: 1px solid white;
+  transition-duration: 0.3s;
+  padding: 5px;
+  border-radius: 10px 10px 0 0;
+}
+.runs__card__title:hover {
+  background-color: rgba(222, 222, 222, 0.3568627451);
+}
+.runs__card__description {
+  font-size: medium;
+}
+.runs__card__remove {
+  font-size: small;
+  padding: 5px;
+  align-self: end;
+}
+
 ::-moz-selection {
   color: white;
   background: lightblue;
@@ -422,25 +464,6 @@ main {
   gap: 10px;
   justify-content: start;
   width: 100%;
-}
-
-.runs {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  justify-content: start;
-}
-.runs__card {
-  height: 175px;
-  width: 100%;
-  background-color: #262D34;
-  border-radius: 15px;
-  padding: 13px;
-}
-.runs__card p {
-  margin: 0px;
 }
 
 .comments {

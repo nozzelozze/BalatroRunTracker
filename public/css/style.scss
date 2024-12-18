@@ -163,24 +163,6 @@ main
     }
 }
 
-.runs
-{
-    @include utils.flex-column(20px);
-    justify-content: start;
-    &__card
-    {
-        height: 175px;
-        width: 100%;
-        background-color: palette.background(2);
-        @include utils.rounded(2);
-        @include utils.padding(2);
-        p
-        {
-            margin: 0px;
-        }
-    }
-}
-
 .comments
 {
     @include utils.flex-row(20px);
