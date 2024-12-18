@@ -35,7 +35,13 @@ class RunService extends Service
                 RUNS.UserID,
                 USERS.Username,
                 RUNS.Score,
-                RUNS.SubmittedAt
+                RUNS.SubmittedAt,
+                RUNS.MostPlayedHand,
+                RUNS.BestHand,
+                RUNS.RunName,
+                RUNS.CardsPlayed,
+                RUNS.Ante,
+                RUNS.RunDescription
             FROM
                 RUNS
             JOIN
@@ -55,7 +61,13 @@ class RunService extends Service
                 RUNS.UserID,
                 USERS.Username,
                 RUNS.Score,
-                RUNS.SubmittedAt
+                RUNS.SubmittedAt,
+                RUNS.MostPlayedHand,
+                RUNS.BestHand,
+                RUNS.RunName,
+                RUNS.CardsPlayed,
+                RUNS.Ante,
+                RUNS.RunDescription
             FROM
                 RUNS
             JOIN
@@ -74,7 +86,13 @@ class RunService extends Service
             RUNS.UserID,
             USERS.Username,
             RUNS.Score,
-            RUNS.SubmittedAt
+            RUNS.SubmittedAt,
+            RUNS.MostPlayedHand,
+            RUNS.BestHand,
+            RUNS.RunName,
+            RUNS.CardsPlayed,
+            RUNS.Ante,
+            RUNS.RunDescription
         FROM
             RUNS
         JOIN

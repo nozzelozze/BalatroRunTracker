@@ -13,6 +13,15 @@ Score FLOAT,
 SubmittedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
 FOREIGN KEY (UserID) REFERENCES USERS(UserID)
 );
+ALTER TABLE RUNS
+ADD (
+BestHand varchar(100), 
+MostPlayedHand ENUM("High Card", "Pair", "Two Pair", "Three of a Kind"),
+RunName varchar(50),
+CardsPlayed varchar(50),
+Ante int,
+RunDescription text
+);
 
 create table COMMENTS (
   CommentID INT PRIMARY KEY AUTO_INCREMENT,

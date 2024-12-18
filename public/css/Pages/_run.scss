@@ -11,6 +11,13 @@
         color: white;
     }
 
+    &__description
+    {
+        font-size: x-large;
+        width: 100%;
+        @include utils.box(palette.background(2));
+    }
+
     &__stat
     {
         width: 100%;

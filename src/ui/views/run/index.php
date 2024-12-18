@@ -9,7 +9,7 @@ $comments = CommentService::read(["RunID" => $runId]);
 
 <div class="run">
     <header class="run__header">
-        <h1 class="run__title">The Banana Run</h1>
+        <h1 class="run__title"><?= $run["RunName"] ?></h1>
         <a class="user-badge" href="/user/<?= $run["UserID"] ?>">
             <img class="user-badge__avatar" src="/assets/logo.png">
             <div class="user-badge__metadata">
@@ -23,13 +23,16 @@ $comments = CommentService::read(["RunID" => $runId]);
             </div>
         </a>
     </header>
+    <div class="run__description">
+        <?= $run["RunDescription"] ?>
+    </div>
     <div class="run__stats">
         <div class="run__stat">
             <h1 class="run__stat__title">
                 Best Hand
             </h1>
             <div class="run__stat__value">
-                42,204
+                <?= $run["BestHand"] ?>
             </div>
         </div>
         <div class="run__stat">
@@ -37,7 +40,7 @@ $comments = CommentService::read(["RunID" => $runId]);
                 Most Played Hand
             </h1>
             <div class="run__stat__value">
-                Two Pair (22)
+                <?= $run["MostPlayedHand"] ?>
             </div>
         </div>
         <div class="run__stat">
@@ -45,7 +48,7 @@ $comments = CommentService::read(["RunID" => $runId]);
                 Cards Played
             </h1>
             <div class="run__stat__value">
-                223
+                <?= $run["CardsPlayed"] ?>
             </div>
         </div>
         <div class="run__stat">
@@ -53,7 +56,7 @@ $comments = CommentService::read(["RunID" => $runId]);
                 Ante
             </h1>
             <div class="run__stat__value">
-                7
+                <?= $run["Ante"] ?>
             </div>
         </div>
     </div>

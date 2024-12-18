@@ -1,10 +1,10 @@
 <div class="runs__card" id="run-<?= $run["RunID"] ?>">
     <a class="runs__card__title" href="/run/<?= $run["RunID"] ?>">
-        Banana Run
+    <?= $run["RunName"] ?>
     </a>
     <div class="runs__card__description">
         <p>
-            This was a very good run. I liked it alot.
+            <?= $run["RunDescription"] ?>
         </p>
     </div>
     <a class="user-badge" href="/user/<?= $run["UserID"] ?>">
