@@ -29,19 +29,19 @@ $runs = RunService::read(["UserID" => $userId]);
     <h1>Statistics</h1>
     <div class="statistics">
     <div class="statistics__item">
-        <div class="statistics__value">1.077e</div>
+        <div class="statistics__value"><?= $user["HighestScore"] ?></div>
         <div class="statistics__label">Highest Score</div>
     </div>
     <div class="statistics__item">
-        <div class="statistics__value">14</div>
+        <div class="statistics__value"><?= $user["HighestAnte"] ?></div>
         <div class="statistics__label">Highest Ante</div>
     </div>
     <div class="statistics__item">
-        <div class="statistics__value"><img src="/assets/images/Fortune_Teller.webp"></div>
+        <div class="statistics__value"><?= $user["MostUsedJoker"] ?></div>
         <div class="statistics__label">Most Used Joker</div>
     </div>
     <div class="statistics__item">
-        <div class="statistics__value">42</div>
+        <div class="statistics__value"><?= $user["RunsCompleted"] ?></div>
         <div class="statistics__label">Runs Completed</div>
     </div>
 </div>
