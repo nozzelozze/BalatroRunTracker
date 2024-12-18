@@ -15,11 +15,13 @@
 </head>
 
 <body>
-    <?php include COMPONENTS."header.php" ?>
-    <main>
-        <?php echo $content; ?>
-    </main>
-    <?php include COMPONENTS."footer.php" ?>
+    <div class="app">
+        <?php include COMPONENTS."header.php" ?>
+        <main>
+            <?php echo $content; ?>
+        </main>
+        <?php include COMPONENTS."footer.php" ?>
+    </div>
 </body>
 
 </html>

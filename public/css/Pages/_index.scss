@@ -1,0 +1,50 @@
+@use "utils/palette" as palette;
+@use "utils/utils" as utils;
+
+.main-page
+{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+}
+
+@mixin sidebar-item($height)
+{
+    background-color: palette.background(2);
+    @include utils.rounded(2);
+    height: $height;
+    width: 100%;
+    padding: 10px;
+}
+
+.navigation
+{
+    @include utils.flex-column(15px);
+    justify-content: start;
+    margin-right: 15px;
+    &__item
+    {
+        &--filter
+        {
+            @include sidebar-item(fit-content);
+        }
+    }
+}
+
+.stats
+{
+    @include utils.flex-column(15px);
+    justify-content: start;
+    margin-left: 15px;
+    &__item
+    {
+        width: 100%;
+        @include sidebar-item(fit-content);
+    }
+    &__stat
+    {
+        @include utils.flex-row(10px);
+        justify-content: start;
+        width: 100%;
+    }
+}
