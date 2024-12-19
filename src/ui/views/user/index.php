@@ -3,7 +3,20 @@ require SERVICES . "UserService.php";
 require SERVICES . "RunService.php";
 
 $userId = basename($_SERVER["REQUEST_URI"]);
-$user = UserService::read((["id" => $userId]))["result"];
+
+$userRes = UserService::read((["id" => $userId]));
+
+if ($userRes["success"])
+{
+    $not_found_message_404 = "User does not exist";
+    $user = $userRes["result"];
+} else
+{
+    include VIEWS."404/index.php";
+    return;
+}
+
+
 $runs = RunService::read(["UserID" => $userId])["result"];
 ?>
 

@@ -117,6 +117,11 @@ class RunService extends Service
     
         if (isset($data["RunID"]))
         {
+            if ($res->num_rows <= 0)
+            {
+                return ["error" => "Run doesn't exist", "success" => false];
+            }
+
             return ["success" => true, "result" => $res->fetch_assoc()];
         }
     

@@ -37,6 +37,10 @@ class UserService extends Service
         {
             return ["error" => $sql->error, "success" => false];
         }
+        if ($res->num_rows <= 0)
+        {
+            return ["error" => "User doesn't exist", "success" => false];
+        }
 
         if (isset($data["id"]))
         {

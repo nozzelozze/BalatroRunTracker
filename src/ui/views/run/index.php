@@ -3,7 +3,18 @@ require SERVICES . "RunService.php";
 require SERVICES . "CommentService.php";
 
 $runId = basename($_SERVER["REQUEST_URI"]);
-$run = RunService::read(["RunID" => $runId])["result"];
+$runRes = RunService::read(["RunID" => $runId]);
+
+if ($runRes["success"])
+{
+    $run = $runRes["result"];
+} else
+{
+    $not_found_message_404 = "Run does not exist";
+    include VIEWS."404/index.php";
+    return;
+}
+
 $comments = CommentService::read(["RunID" => $runId])["result"];
 ?>
 

@@ -81,6 +81,10 @@ Uses function for static colors just to remain consistent
 .not-found__title {
   font-size: 5rem;
   margin: 25px;
+  margin-bottom: 0px;
+}
+.not-found__message {
+  font-size: 2rem;
 }
 
 .run {
