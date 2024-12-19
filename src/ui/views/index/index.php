@@ -7,7 +7,7 @@ $newRuns = RunService::read(["orderBy" => "RUNS.SubmittedAt"])["result"];
 
     <div class="navigation">
         <div class="navigation__item navigation__item--filter">
-            <div class="menu" id="menu">
+            <div class="menu" id="runs-menu">
 
                 <div class="menu__item menu__item--active" data-id="new">
                     <div class="menu__icon">
@@ -40,7 +40,7 @@ $newRuns = RunService::read(["orderBy" => "RUNS.SubmittedAt"])["result"];
 
         <div class="stats__item">
             <h2>Most Played Jokers</h2>
-            <div class="menu" id="menu">
+            <div class="menu" id="jokers-menu">
 
                 <div class="menu__item">
                     <div class="menu__icon">

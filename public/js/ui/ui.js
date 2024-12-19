@@ -1,17 +1,21 @@
 
+const menus = document.querySelectorAll(".menu");
 
-
-const menuItems = document.querySelectorAll(".menu__item");
-
-menuItems.forEach(item =>
+menus.forEach(menu =>
 {
-    item.addEventListener("click", () =>
+    const menuItems = menu.querySelectorAll(".menu__item");
+
+    menuItems.forEach(item =>
     {
+        item.addEventListener("click", () =>
+        {
+            menuItems.forEach(el => el.classList.remove("menu__item--active"));
 
-        menuItems.forEach(el => el.classList.remove("menu__item--active"));
+            item.classList.add("menu__item--active");
 
-        item.classList.add("menu__item--active");
+            const parentMenuId = menu.id;
+            const sectionId = item.getAttribute("data-id");
 
-        const section = item.getAttribute("data-id");
-    });
-});
+        })
+    })
+})
