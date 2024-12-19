@@ -1,5 +1,5 @@
 import ApiClient from "../api/ApiClient.js";
-
+import showSnackbar from "../ui/snackbar.js";
 
 
 const onRemoveRun = async (runId) =>
@@ -25,12 +25,12 @@ const onComment = async (runId, userId, username) =>
 
     if (!content)
     {
-        alert("Can't post an empty comment.");
-        return;
+        showSnackbar("Can't post empty comment...")
+        return
     }
 
     let res = await client.POST("comments", {
-        "RunID": runId,
+        "RunID": "runId",
         "Content": content
     })
 

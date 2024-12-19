@@ -1,5 +1,4 @@
 import ApiClient from "../api/ApiClient.js";
-import RunsClient from "../api/RunsClient.js"
 
 class FormHandler
 {
@@ -15,7 +14,7 @@ FormHandler.addForm("new-run-form", event => {
     event.preventDefault();
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
-    new RunsClient().createRun(data)
+    new ApiClient().POST("runs", data)
 })
 
 FormHandler.addForm("login-form", event => {

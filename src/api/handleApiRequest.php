@@ -3,9 +3,25 @@
 function handleApiRequest(
     callable $postHandler = null, 
     callable $getHandler = null, 
-    callable $deleteHandler = null
+    callable $deleteHandler = null,
+    callable $partialsHandler = null,
     )
 {
+    $acceptHeader = $_SERVER["HTTP_ACCEPT"] ?? "";
+
+    if ($acceptHeader == "text/html")
+    {
+        if (!$partialsHandler)
+        {
+            http_response_code(406);
+        } else
+        {
+            header("Content-Type: text/html");
+            $response = $partialsHandler($_GET);
+            echo $response;
+        }
+        return;
+    }
     header("Content-Type: application/json");
     if ($_SERVER["REQUEST_METHOD"] == "POST")
     {

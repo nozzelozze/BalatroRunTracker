@@ -3,7 +3,7 @@ import config from ".././dev/config.js"
 class ApiClient
 {
 
-    async POST(path, data)
+    async POST(path, data = {})
     {
         const res = await fetch(config.API_URL + path, {
             method: "POST",
@@ -16,7 +16,19 @@ class ApiClient
         return res
     }
 
-    async GET(path, params)
+    async PARTIAL(path, params = {})
+    {
+        params = new URLSearchParams(params).toString()
+        const res = await fetch(`${config.API_URL}${path}?${params}`, {
+            method: "GET",
+            headers: {
+                "Accept": "text/html"
+            }
+        })
+        return res
+    }
+
+    async GET(path, params = {})
     {
         params = new URLSearchParams(params).toString()
         const res = await fetch(`${config.API_URL}${path}?${params}`, {

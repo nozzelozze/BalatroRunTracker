@@ -5,5 +5,16 @@ handleApiRequest([RunService::class, "create"], [RunService::class, "read"], fun
 {
     $id = basename($_SERVER["REQUEST_URI"]);
     RunService::delete(["RunID" => $id]);
+}, function($data)
+{
+    $result = RunService::read($data);
+    if (!$result["success"])
+    {
+        return "Something went wrong...";
+    }
+    foreach ($result["result"] as $run)
+    {
+        include COMPONENTS . "runCard.php";
+    }
 })
 ?>

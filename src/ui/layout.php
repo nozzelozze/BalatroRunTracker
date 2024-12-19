@@ -22,6 +22,9 @@
         </main>
         <?php include COMPONENTS."footer.php" ?>
     </div>
+    <div class="snackbar" id="snackbar">
+        Hejsan 
+    </div>
 </body>
 
 </html>

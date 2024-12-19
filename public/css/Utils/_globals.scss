@@ -4,6 +4,7 @@
 .menu
 {
     width: 100%;
+
     &__item
     {
         display: flex;
@@ -25,6 +26,7 @@
     {
         font-size: x-large;
         margin-right: 15px;
+
         img
         {
             width: 45px;
@@ -46,26 +48,31 @@
     justify-content: start;
     width: fit-content;
     padding: .2rem;
+
     &__avatar
     {
         height: 35px;
         width: 35px;
         border-radius: 50%;
     }
+
     &__username
     {
         font-size: 1em;
     }
+
     &__date
     {
         font-size: .8em;
         color: rgb(227, 242, 255)
     }
+
     &__metadata
     {
         @include utils.flex-column(2px);
         align-items: start;
     }
+
     @include utils.rounded(1);
     @include utils.hover-effect();
 }
@@ -74,6 +81,7 @@
 {
     @include utils.flex-column(20px);
     justify-content: start;
+
     &__card
     {
         height: fit-content;
@@ -81,6 +89,7 @@
         @include utils.flex-column(20px);
         align-items: start;
         @include utils.box(palette.background(2));
+
         &__title
         {
             width: 100%;
@@ -106,10 +115,9 @@
 }
 
 
-$button-variants:
-(
-    blue:  (palette.blue(1),  palette.blue(3)),
-    red:   (palette.red(1),   palette.red(3)),
+$button-variants: (
+    blue: (palette.blue(1), palette.blue(3)),
+    red: (palette.red(1), palette.red(3)),
     green: (palette.green(1), palette.green(3)),
     black: (palette.black(1), #2F2F34)
 );
@@ -123,20 +131,21 @@ button
     @include utils.rounded(1);
     transition-duration: .4s;
 }
+
 .button
 {
     @each $name, $colors in $button-variants
     {
         &--#{$name}
         {
-            @if $name == black 
+            @if $name ==black
             {
                 color: white;
             }
 
             background-color: nth($colors, 1);
 
-            &:hover 
+            &:hover
             {
                 background-color: nth($colors, 2);
             }
@@ -170,10 +179,10 @@ button
     {
         font-size: x-large;
     }
-    
+
     form
     {
-        width: 50%; 
+        width: 50%;
         @include utils.flex-column(10px);
     }
 }
@@ -184,7 +193,7 @@ input
     font-size: 1rem;
     @include utils.box(palette.background(3));
     color: #fff;
-    border:none;
+    border: none;
     padding: 0.7rem;
 }
 
@@ -195,7 +204,8 @@ input
     src: url("../assets/fonts/m6x11.ttf");
 }
 
-a {
+a
+{
     color: inherit;
     text-decoration: none;
 }
@@ -221,20 +231,24 @@ body
     padding-block: 0px;
     @include utils.flex-row();
     justify-content: space-between;
+
     &__section
     {
         @include utils.flex-row(15px);
+
         &__logo
         {
             @include utils.rounded(2);
             height: 64px;
         }
     }
+
     &__logo-text
     {
         font-size: xx-large;
         color: palette.white();
     }
+
     min-height: 90px;
 }
 
@@ -248,6 +262,88 @@ main
     @include utils.flex-column(16px);
     max-width: 1400px;
     width: 100%;
+}
+
+.snackbar
+{
+    @include utils.box(palette.red(3));
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    color: #fff;
+    text-align: center;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: x-large;
+
+    &--show
+    {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    }
+}
+
+@-webkit-keyframes fadein
+{
+    from
+    {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to
+    {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein
+{
+    from
+    {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to
+    {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout
+{
+    from
+    {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to
+    {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout
+{
+    from
+    {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to
+    {
+        bottom: 0;
+        opacity: 0;
+    }
 }
 
 ::-moz-selection
