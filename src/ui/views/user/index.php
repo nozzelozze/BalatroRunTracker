@@ -8,10 +8,10 @@ $userRes = UserService::read((["id" => $userId]));
 
 if ($userRes["success"])
 {
-    $not_found_message_404 = "User does not exist";
     $user = $userRes["result"];
 } else
 {
+    $not_found_message_404 = "User does not exist";
     include VIEWS."404/index.php";
     return;
 }
