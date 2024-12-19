@@ -104,9 +104,13 @@ class RunService extends Service
             JOIN
                 USERS
             ON
-                RUNS.UserID = USERS.UserID "
-                . (isset($data["orderBy"]) ? " ORDER BY " . $sql->real_escape_string($data["orderBy"]) : "")
-                . (isset($data["reverse"]) && $data["reverse"] == true ? " ASC" : " DESC");
+                RUNS.UserID = USERS.UserID ";
+            if (isset($data["orderBy"]) && !empty($data["orderBy"]))
+            {
+                $orderBy = $sql->real_escape_string($data["orderBy"]);
+                $direction = (isset($data["reverse"]) && $data["reverse"] == true) ? "ASC" : "DESC";
+                $query .= " ORDER BY $orderBy $direction";
+            }
         }
     
         $res = $sql->query($query);

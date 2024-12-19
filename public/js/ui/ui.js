@@ -1,20 +1,31 @@
 
-const menus = document.querySelectorAll(".menu");
+const menus = document.querySelectorAll(".menu")
 
 menus.forEach(menu =>
 {
-    const menuItems = menu.querySelectorAll(".menu__item");
+    const menuItems = menu.querySelectorAll(".menu__item")
 
     menuItems.forEach(item =>
     {
         item.addEventListener("click", () =>
         {
-            menuItems.forEach(el => el.classList.remove("menu__item--active"));
+            menuItems.forEach(el => el.classList.remove("menu__item--active"))
 
-            item.classList.add("menu__item--active");
+            item.classList.add("menu__item--active")
 
-            const parentMenuId = menu.id;
-            const sectionId = item.getAttribute("data-id");
+            const parentMenuId = menu.id
+            const sectionId = item.getAttribute("data-id")
+
+            if (parentMenuId == "runs-menu")
+            {
+                if (sectionId == "new")
+                {
+
+                } else if (sectionId == "highscore")
+                {
+                    
+                }
+            }
 
         })
     })
