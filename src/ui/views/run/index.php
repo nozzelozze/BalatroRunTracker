@@ -3,8 +3,8 @@ require SERVICES . "RunService.php";
 require SERVICES . "CommentService.php";
 
 $runId = basename($_SERVER["REQUEST_URI"]);
-$run = RunService::read(["RunID" => $runId]);
-$comments = CommentService::read(["RunID" => $runId]);
+$run = RunService::read(["RunID" => $runId])["result"];
+$comments = CommentService::read(["RunID" => $runId])["result"];
 ?>
 
 <div class="run">

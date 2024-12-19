@@ -1,6 +1,6 @@
 <?php
-require_once SERVICES."DBService.php";
-require_once SERVICES."Service.php";
+require_once SERVICES . "DBService.php";
+require_once SERVICES . "Service.php";
 
 class UserService extends Service
 {
@@ -10,9 +10,12 @@ class UserService extends Service
     }
     public static function read($data = null)
     {
+        $sql = DBService::getInstance()->connection;
+        $query = "";
+
         if (isset($data["id"]))
         {
-            $res = DBService::getInstance()->connection->query("
+            $query = "
             SELECT 
                 Username, 
                 CreatedAt,
@@ -20,13 +23,27 @@ class UserService extends Service
                 HighestScore,
                 RunsCompleted,
                 MostUsedJoker
-            from 
-                USERS WHERE USERS.UserID = ".$data["id"]
-            );
-            return $res->fetch_assoc();
+            FROM 
+                USERS 
+            WHERE 
+                USERS.UserID = " . intval($data["id"]);
+        } else
+        {
+            $query = "SELECT Username, UserID FROM USERS";
         }
-        $res = DBService::getInstance()->connection->query("SELECT Username from USERS");
-        return $res->fetch_all(MYSQLI_ASSOC);
+
+        $res = $sql->query($query);
+        if (!$res)
+        {
+            return ["error" => $sql->error, "success" => false];
+        }
+
+        if (isset($data["id"]))
+        {
+            return ["success" => true, "result" => $res->fetch_assoc()];
+        }
+
+        return ["success" => true, "result" => $res->fetch_all(MYSQLI_ASSOC)];
     }
 
     public static function delete($data = null)

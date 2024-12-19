@@ -1,6 +1,6 @@
 <?php
 require SERVICES . "RunService.php";
-$newRuns = RunService::read(["orderBy" => "RUNS.SubmittedAt"]);
+$newRuns = RunService::read(["orderBy" => "RUNS.SubmittedAt"])["result"];
 ?>
 
 <div class="main-page">

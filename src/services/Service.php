@@ -7,6 +7,13 @@ abstract class Service
     They are only for making queries to the database.
 
     Utilizes CRUD principles
+
+    Each method returns an array:
+    [
+        "error" => string|null,
+        "success" => bool,
+        "result": mysqli_result|null
+    ]
     */
 
     public abstract static function create($data = null);

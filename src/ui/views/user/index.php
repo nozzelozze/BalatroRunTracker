@@ -3,9 +3,8 @@ require SERVICES . "UserService.php";
 require SERVICES . "RunService.php";
 
 $userId = basename($_SERVER["REQUEST_URI"]);
-$user = UserService::read((["id" => $userId]));
-$runs = RunService::read(["UserID" => $userId]);
-
+$user = UserService::read((["id" => $userId]))["result"];
+$runs = RunService::read(["UserID" => $userId])["result"];
 ?>
 
 
@@ -48,7 +47,7 @@ $runs = RunService::read(["UserID" => $userId]);
     <h1>Runs</h1>
     <div class="runs">
         <?php
-        foreach ($runs as $run) {
+         foreach ($runs as $run) {
             include COMPONENTS . "runCard.php";
         }
         ?>
