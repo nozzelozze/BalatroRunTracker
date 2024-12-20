@@ -20,7 +20,7 @@ $comments = CommentService::read(["RunID" => $runId])["result"];
 
 <div class="run">
     <header class="run__header">
-        <h1 class="run__title"><?= $run["RunName"] ?></h1>
+        <div class="run__title"><?= $run["RunName"] ?></div>
         <a class="user-badge" href="/user/<?= $run["UserID"] ?>">
             <img class="user-badge__avatar" src="/assets/logo.png">
             <div class="user-badge__metadata">

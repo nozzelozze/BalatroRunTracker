@@ -30,7 +30,7 @@ const onComment = async (runId, userId, username) =>
     }
 
     let res = await client.POST("comments", {
-        "RunID": "runId",
+        "RunID": runId,
         "Content": content
     })
 

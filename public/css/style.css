@@ -100,9 +100,18 @@ Uses function for static colors just to remain consistent
 .run__header {
   width: 100%;
   padding: 1.2rem;
-  background-color: #fd5f54;
+  background-color: #c1413a;
   border-radius: 6px;
   color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  justify-content: space-between;
+}
+.run__title {
+  font-size: 2rem;
 }
 .run__description {
   font-size: x-large;
@@ -111,9 +120,19 @@ Uses function for static colors just to remain consistent
   background-color: #151D28;
   border-radius: 6px;
 }
-.run__stat {
+.run__stats {
+  padding: 1.2rem;
+  background-color: #151D28;
+  border-radius: 6px;
   width: 100%;
-  height: 75px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.run__stat {
+  flex: 1 1 calc(25% - 20px);
+  height: 65px;
+  min-width: 450px;
   padding: 1.2rem;
   background-color: #e6eff7;
   border-radius: 6px;
@@ -124,32 +143,21 @@ Uses function for static colors just to remain consistent
   gap: 0px;
   justify-content: space-between;
 }
+@media screen and (max-width: 640px) {
+  .run__stat {
+    min-width: 100%;
+  }
+}
 .run__stat__title {
   color: rgb(52, 52, 52);
-  font-size: xx-large;
+  font-size: 1.65em;
 }
 .run__stat__value {
   padding: 1.2rem;
   background-color: #10141F;
   border-radius: 6px;
   padding: 15px;
-  color: white;
-  font-size: xx-large;
-}
-.run__stats {
-  padding: 1.2rem;
-  background-color: #151D28;
-  border-radius: 6px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-.run__title {
-  font-size: 2rem;
-  margin: 0 0 0.5rem;
+  font-size: 1.5em;
 }
 .run__comments {
   padding: 1.2rem;
@@ -199,6 +207,9 @@ Uses function for static colors just to remain consistent
   gap: 15px;
   justify-content: space-between;
   width: 100%;
+}
+.run__comments__comment__content {
+  font-size: 1.2em;
 }
 
 .main-page {
@@ -317,7 +328,7 @@ Uses function for static colors just to remain consistent
   justify-content: start;
   width: -moz-fit-content;
   width: fit-content;
-  padding: 0.2rem;
+  padding: 0.4rem;
   border-radius: 6px;
   transition-duration: 0.3s;
 }
