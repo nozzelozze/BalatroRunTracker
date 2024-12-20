@@ -1,0 +1,20 @@
+$sm: 640px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1440px;
+
+@mixin lessThan($breakpoint)
+{
+    @media screen and (max-width: $breakpoint)
+    {
+        @content;
+    }
+}
+
+@mixin hideLessThan($breakpoint)
+{
+    @include lessThan($breakpoint)
+    {
+        display: none;
+    }
+}

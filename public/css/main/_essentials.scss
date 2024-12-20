@@ -1,5 +1,6 @@
 @use "../utils/utils" as utils;
 @use "../utils/palette" as palette;
+@use "../utils/responsive" as r;
 
 @font-face
 {
@@ -23,7 +24,7 @@ body
 {
     background-color: palette.background();
     color: palette.white();
-    width: 100%;
+    max-width: 100%;
     @include utils.flex-column(16px);
 }
 
@@ -56,14 +57,37 @@ body
         &__logo
         {
             @include utils.rounded(2);
-            height: 64px;
+            height: 48px;
         }
+    }
+
+    .user-badge__name
+    {
+        @include r.hideLessThan(r.$sm);
     }
 
     &__logo-text
     {
-        font-size: xx-large;
+        font-size: x-large;
         color: palette.white();
+
+        @include r.hideLessThan(r.$lg);
+    }
+
+    &__button
+    {
+        span
+        {
+            @include r.hideLessThan(r.$lg);
+        }
+        i
+        {
+            display: none;
+            @include r.lessThan(r.$lg)
+            {
+                display: block;
+            };
+        }
     }
 
     min-height: 90px;

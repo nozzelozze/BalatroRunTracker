@@ -23,7 +23,7 @@
     $size: max(1, min($size, 3));
 
     $radius: map-get((
-        1: 10px,
+        1: 6px,
         2: 15px,
         3: 20px,
     ), $size);

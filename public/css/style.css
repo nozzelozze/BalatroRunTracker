@@ -15,7 +15,7 @@ Uses function for static colors just to remain consistent
   margin-bottom: 40px;
 }
 .user .statistics__item {
-  background: #262D34;
+  background: #151D28;
   border-radius: 8px;
   padding: 20px;
   flex: 1 1 calc(25% - 20px);
@@ -98,22 +98,22 @@ Uses function for static colors just to remain consistent
   width: 100%;
   padding: 1.2rem;
   background-color: #fd5f54;
-  border-radius: 10px;
+  border-radius: 6px;
   color: white;
 }
 .run__description {
   font-size: x-large;
   width: 100%;
   padding: 1.2rem;
-  background-color: #262D34;
-  border-radius: 10px;
+  background-color: #151D28;
+  border-radius: 6px;
 }
 .run__stat {
   width: 100%;
   height: 75px;
   padding: 1.2rem;
   background-color: #e6eff7;
-  border-radius: 10px;
+  border-radius: 6px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -127,16 +127,16 @@ Uses function for static colors just to remain consistent
 }
 .run__stat__value {
   padding: 1.2rem;
-  background-color: #1E252B;
-  border-radius: 10px;
+  background-color: #10141F;
+  border-radius: 6px;
   padding: 15px;
   color: white;
   font-size: xx-large;
 }
 .run__stats {
   padding: 1.2rem;
-  background-color: #262D34;
-  border-radius: 10px;
+  background-color: #151D28;
+  border-radius: 6px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -150,8 +150,8 @@ Uses function for static colors just to remain consistent
 }
 .run__comments {
   padding: 1.2rem;
-  background-color: #262D34;
-  border-radius: 10px;
+  background-color: #151D28;
+  border-radius: 6px;
   width: 100%;
 }
 .run__comments__title {
@@ -201,7 +201,7 @@ Uses function for static colors just to remain consistent
 .main-page {
   width: 100%;
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 25% 50% 25%;
 }
 
 .navigation {
@@ -214,7 +214,7 @@ Uses function for static colors just to remain consistent
   margin-right: 15px;
 }
 .navigation__item--filter {
-  background-color: #262D34;
+  background-color: #151D28;
   border-radius: 15px;
   height: -moz-fit-content;
   height: fit-content;
@@ -233,7 +233,7 @@ Uses function for static colors just to remain consistent
 }
 .stats__item {
   width: 100%;
-  background-color: #262D34;
+  background-color: #151D28;
   border-radius: 15px;
   height: -moz-fit-content;
   height: fit-content;
@@ -285,7 +285,7 @@ Uses function for static colors just to remain consistent
   cursor: pointer;
 }
 .menu__item--active, .menu__item:hover {
-  background-color: #444b5f;
+  background-color: #202E37;
 }
 .menu__icon {
   font-size: x-large;
@@ -293,7 +293,7 @@ Uses function for static colors just to remain consistent
 }
 .menu__icon img {
   width: 45px;
-  border-radius: 10px;
+  border-radius: 6px;
 }
 .menu__title {
   font-size: 20px;
@@ -306,12 +306,11 @@ Uses function for static colors just to remain consistent
   justify-content: center;
   align-items: center;
   gap: 5px;
-  align-items: start;
   justify-content: start;
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.2rem;
-  border-radius: 10px;
+  border-radius: 6px;
   transition-duration: 0.3s;
 }
 .user-badge__avatar {
@@ -357,8 +356,8 @@ Uses function for static colors just to remain consistent
   gap: 20px;
   align-items: start;
   padding: 1.2rem;
-  background-color: #262D34;
-  border-radius: 10px;
+  background-color: #151D28;
+  border-radius: 6px;
 }
 .runs__card__title {
   width: 100%;
@@ -380,15 +379,15 @@ Uses function for static colors just to remain consistent
   align-self: end;
 }
 
-button {
-  font-size: x-large;
-  padding: 13px;
+.button {
+  font-size: 1.25em;
+  padding-inline: 0.8em;
+  padding-block: 0.5em;
   outline: none;
   border: none;
-  border-radius: 10px;
+  border-radius: 6px;
   transition-duration: 0.4s;
 }
-
 .button--blue {
   background-color: #3cb4ff;
 }
@@ -449,8 +448,8 @@ button {
 input {
   font-size: 1rem;
   padding: 1.2rem;
-  background-color: #444b5f;
-  border-radius: 10px;
+  background-color: #202E37;
+  border-radius: 6px;
   color: #fff;
   border: none;
   padding: 0.7rem;
@@ -459,7 +458,7 @@ input {
 .snackbar {
   padding: 1.2rem;
   background-color: #c1413a;
-  border-radius: 10px;
+  border-radius: 6px;
   visibility: hidden;
   min-width: 250px;
   margin-left: -125px;
@@ -491,9 +490,9 @@ a {
 }
 
 body {
-  background-color: #1E252B;
+  background-color: #10141F;
   color: #ffffff;
-  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -514,8 +513,8 @@ body {
 .header {
   width: 100%;
   padding: 1.2rem;
-  background-color: #262D34;
-  border-radius: 10px;
+  background-color: #151D28;
+  border-radius: 6px;
   padding-block: 0px;
   display: flex;
   flex-direction: row;
@@ -534,11 +533,34 @@ body {
 }
 .header__section__logo {
   border-radius: 15px;
-  height: 64px;
+  height: 48px;
+}
+@media screen and (max-width: 640px) {
+  .header .user-badge__name {
+    display: none;
+  }
 }
 .header__logo-text {
-  font-size: xx-large;
+  font-size: x-large;
   color: #ffffff;
+}
+@media screen and (max-width: 1024px) {
+  .header__logo-text {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .header__button span {
+    display: none;
+  }
+}
+.header__button i {
+  display: none;
+}
+@media screen and (max-width: 1024px) {
+  .header__button i {
+    display: block;
+  }
 }
 
 main {

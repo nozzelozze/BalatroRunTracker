@@ -6,20 +6,27 @@
         <a href="/">
             <p class="header__logo-text">Balatro Runs</p>
         </a>
-        <p><?= isset($_SESSION["Name"]) ? $_SESSION["Name"] : "" ?></p>
-        <a href="/"><button>Runs</button></a>
-        <a href="/new"><button>Submit</button></a>
+        <a href="/" class="button button--black header__button">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
+        <a href="/new" class="button button--black header__button">
+            <i class="fa-solid fa-plus"></i>
+            <span>Submit</span>
+        </a>
     </div>
     <div class="header__section">
-        <a href="/login">
-            <button class="button--black">Log In</button>
+        <a href="/login" class="button button--black header__button">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <span>Log In</span>
         </a>
-        <a href="/signup">
-            <button class="button--black">Create Account</button>
+        <a href="/signup" class="button button--black header__button">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>Create Account</span>
         </a>
-<!--         <div class="user-badge">
-            <img src="/assets/logoAlternate.webp" class="user-badge__avatar">
+        <a class="user-badge" href="/user/1">
+            <img src="/assets/logo.png" class="user-badge__avatar">
             <span class="user-badge__name">nozzelozze</span>
-        </div> -->
+        </a>
     </div>
 </header>
