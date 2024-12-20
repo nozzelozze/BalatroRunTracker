@@ -188,9 +188,6 @@ Uses function for static colors just to remain consistent
 .run__comments__text-input {
   flex: 1;
 }
-.run__comments__submit {
-  font-size: medium;
-}
 .run__comments__list {
   display: flex;
   flex-direction: column;

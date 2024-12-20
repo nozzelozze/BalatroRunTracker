@@ -96,11 +96,6 @@
             flex: 1;
         }
 
-        &__submit
-        {
-            font-size: medium;
-        }
-
         &__list
         {
             @include utils.flex-column(15px);

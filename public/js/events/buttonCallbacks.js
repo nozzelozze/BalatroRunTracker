@@ -36,27 +36,17 @@ const onComment = async (runId, userId, username) =>
 
     if (res.ok)
     {
-        let commentElement = document.createElement("div");
-        commentElement.classList.add("run__comments__comment");
+        let partialRes = await client.PARTIAL("comments", {"CommentID": (await res.json()).result.CommentID})
 
-        commentElement.innerHTML = `
-            <a class="user-badge" href="/user/${userId}">
-                <img class="user-badge__avatar" src="/assets/logo.png">
-                <div class="user-badge__metadata">
-                    <div class="user-badge__username">
-                        ${username}
-                    </div>
-                    <div class="user-badge__date">
-                        Commented just now
-                    </div>
-                </div>
-            </a>
-            <div class="run__comments__comment__content">
-                ${content}
-            </div>
-        `;
-        document.querySelector(".run__comments__list").appendChild(commentElement);
+        let tempDiv = document.createElement("div");
+        tempDiv.innerHTML = await partialRes.text();
+        let commentsElement = document.querySelector(".run__comments__list");
+        commentsElement.insertBefore(tempDiv.firstElementChild, commentsElement.firstChild);
         document.getElementById("comment-input").value = "";
+        
+    } else
+    {
+        showSnackbar("Something went wrong...")
     }
 }
 window.onComment = onComment;

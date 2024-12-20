@@ -78,28 +78,12 @@ $comments = CommentService::read(["RunID" => $runId])["result"];
         <div class="run__comments__input">
             <img class="run__comments__avatar" src="/assets/logo.png">
             <input type="text" class="run__comments__text-input" id="comment-input" placeholder="Add comment..." />
-            <button class="run__comments__submit button" onclick="onComment(<?= $run['RunID'] ?>, <?= $run['UserID'] ?>, '<?= $run['Username'] ?>')">Comment</button>
+            <button class="button" id="comment-button" onclick="onComment(<?= $run['RunID'] ?>, <?= $run['UserID'] ?>, '<?= $run['Username'] ?>')">Comment</button>
         </div>
 
         <div class="run__comments__list">
             <?php foreach ($comments as $comment): ?>
-                <div class="run__comments__comment">
-                    <a class="user-badge" href="/user/<?= $comment["UserID"] ?>">
-                        <img class="user-badge__avatar" src="/assets/logo.png">
-                        <div class="user-badge__metadata">
-                            <div class="user-badge__username">
-                                <?= $comment["Username"] ?>
-                            </div>
-                            <div class="user-badge__date">
-                                Commented
-                                <?= (date("Y") - date("Y", strtotime($comment["CreatedAt"]))) < 1 ? "less than a year ago" : (date("Y") - date("Y", strtotime($run["CreatedAt"]))) . " years ago" ?>
-                            </div>
-                        </div>
-                    </a>
-                    <div class="run__comments__comment__content">
-                        <?= $comment["Content"] ?>
-                    </div>
-                </div>
+                <?php include COMPONENTS."comment.php"; ?>
             <?php endforeach; ?>
         </div>
     </div>

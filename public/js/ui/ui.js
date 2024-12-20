@@ -25,13 +25,13 @@ menus.forEach(async menu =>
                 let response;
                 if (sectionId == "new")
                 {
-                    response = await client.PARTIAL("runs", {orderBy: "RUNS.SubmittedAt"})
+                    response = await client.PARTIAL("runs", { orderBy: "RUNS.SubmittedAt" })
                 } else if (sectionId == "highscore")
                 {
-                    response = await client.PARTIAL("runs", {orderBy: "RUNS.Score"})
+                    response = await client.PARTIAL("runs", { orderBy: "RUNS.Score" })
                 } else if (sectionId == "ante")
                 {
-                    response = await client.PARTIAL("runs", {orderBy: "RUNS.Ante"})
+                    response = await client.PARTIAL("runs", { orderBy: "RUNS.Ante" })
                 }
                 const runs = document.querySelector(".runs");
                 runs.innerHTML = await response.text();
@@ -40,3 +40,19 @@ menus.forEach(async menu =>
         })
     })
 })
+
+
+const input = document.getElementById("comment-input");
+
+input?.addEventListener("keypress", function (event)
+{
+    if (event.key === "Enter")
+    {
+        event.preventDefault();
+        const commentButton = document.getElementById("comment-button");
+
+        commentButton?.click();
+
+        input.blur();
+    }
+});
