@@ -1,11 +1,11 @@
-@use "utils/palette" as palette;
-@use "utils/utils" as utils;
 
-@use "Pages/user";
-@use "Pages/login";
-@use "Pages/notfound";
-@use "Pages/new";
-@use "Pages/run";
-@use "Pages/index";
+@use "pages/user";
+@use "pages/login";
+@use "pages/notfound";
+@use "pages/new";
+@use "pages/run";
+@use "pages/index";
 
-@use "utils/globals";
+@use "main/globals";
+@use "main/essentials";
+
