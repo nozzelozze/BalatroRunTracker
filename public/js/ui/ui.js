@@ -29,6 +29,9 @@ menus.forEach(async menu =>
                 } else if (sectionId == "highscore")
                 {
                     response = await client.PARTIAL("runs", {orderBy: "RUNS.Score"})
+                } else if (sectionId == "ante")
+                {
+                    response = await client.PARTIAL("runs", {orderBy: "RUNS.Ante"})
                 }
                 const runs = document.querySelector(".runs");
                 runs.innerHTML = await response.text();

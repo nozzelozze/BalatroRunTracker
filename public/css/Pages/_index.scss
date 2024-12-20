@@ -1,11 +1,17 @@
 @use ".././utils/palette" as palette;
 @use ".././utils/utils" as utils;
+@use ".././utils/responsive" as responsive;
 
 .main-page
 {
     width: 100%;
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 20% 55% calc(25% - 32px);
+    gap: 16px;
+    @include responsive.lessThan(lg)
+    {
+        @include utils.flex-column(16px);
+    }
 }
 
 @mixin sidebar-item($height)
@@ -13,38 +19,24 @@
     background-color: palette.background(2);
     @include utils.rounded(2);
     height: $height;
-    width: 100%;
     padding: 10px;
 }
 
 .navigation
 {
     @include utils.flex-column(15px);
-    justify-content: start;
-    margin-right: 15px;
-    &__item
-    {
-        &--filter
-        {
-            @include sidebar-item(fit-content);
-        }
-    }
+    @include sidebar-item(fit-content);
 }
 
 .stats
 {
     @include utils.flex-column(15px);
-    justify-content: start;
-    margin-left: 15px;
-    &__item
+    &__title
     {
-        width: 100%;
-        @include sidebar-item(fit-content);
+        align-self: start;
+        font-size: 1.5em;
+        padding: 15px;
     }
-    &__stat
-    {
-        @include utils.flex-row(10px);
-        justify-content: start;
-        width: 100%;
-    }
+    @include sidebar-item(fit-content);
+    @include responsive.hideLessThan(lg);
 }
