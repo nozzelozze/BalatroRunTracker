@@ -17,16 +17,21 @@ class UserService extends Service
         {
             $query = "
             SELECT 
-                Username, 
-                CreatedAt,
-                HighestAnte,
-                HighestScore,
-                RunsCompleted,
-                MostUsedJoker
+                u.UserID, 
+                u.Username,
+                u.CreatedAt,
+                MAX(r.Ante) AS HighestAnte, 
+                MAX(r.Score) AS HighestScore, 
+                COUNT(r.RunID) AS RunsCompleted
             FROM 
-                USERS 
+                USERS u
+            LEFT JOIN 
+                RUNS r ON u.UserID = r.UserID
             WHERE 
-                USERS.UserID = " . intval($data["id"]);
+                u.UserID = " . intval($data["id"]) ." 
+            GROUP BY 
+                u.UserID, u.Username
+            ";
         } else
         {
             $query = "SELECT Username, UserID FROM USERS";

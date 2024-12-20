@@ -48,10 +48,10 @@ $runs = RunService::read(["UserID" => $userId])["result"];
         <div class="statistics__value"><?= $user["HighestAnte"] ?></div>
         <div class="statistics__label">Highest Ante</div>
     </div>
-    <div class="statistics__item">
+<!--     <div class="statistics__item">
         <div class="statistics__value"><?= $user["MostUsedJoker"] ?></div>
         <div class="statistics__label">Most Used Joker</div>
-    </div>
+    </div> -->
     <div class="statistics__item">
         <div class="statistics__value"><?= $user["RunsCompleted"] ?></div>
         <div class="statistics__label">Runs Completed</div>
