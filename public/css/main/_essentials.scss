@@ -63,7 +63,7 @@ body
 
     .user-badge__name
     {
-        @include r.hideLessThan(r.$sm);
+        @include r.hideLessThan(sm);
     }
 
     &__logo-text
@@ -71,19 +71,19 @@ body
         font-size: x-large;
         color: palette.white();
 
-        @include r.hideLessThan(r.$lg);
+        @include r.hideLessThan(lg);
     }
 
     &__button
     {
         span
         {
-            @include r.hideLessThan(r.$lg);
+            @include r.hideLessThan(lg);
         }
         i
         {
             display: none;
-            @include r.lessThan(r.$lg)
+            @include r.lessThan(lg)
             {
                 display: block;
             };

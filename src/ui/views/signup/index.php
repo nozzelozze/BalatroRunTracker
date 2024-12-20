@@ -6,7 +6,7 @@
         <input class="access-screen__input" required type="text" name="Username" id="Username" placeholder="Username" />
         <input class="access-screen__input" required type="password" name="Password" id="Password" placeholder="Password" />
 
-        <button class="access-screen__input button--green" type="submit">Login</button>
+        <button class="button access-screen__input button--green" type="submit">Login</button>
     </form>
     <a class="access-screen__tip" href="/login">
         or, login

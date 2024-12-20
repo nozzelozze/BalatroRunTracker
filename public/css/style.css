@@ -270,7 +270,7 @@ Uses function for static colors just to remain consistent
   }
 }
 /* 
-    Anything that is used at multiple places.
+    Anything that is used in multiple places.
 */
 .menu {
   width: 100%;
@@ -374,7 +374,7 @@ Uses function for static colors just to remain consistent
   font-size: medium;
 }
 .runs__card__remove {
-  font-size: small;
+  font-size: small !important;
   padding: 5px;
   align-self: end;
 }
@@ -422,16 +422,18 @@ Uses function for static colors just to remain consistent
   justify-content: center;
   align-items: center;
   gap: 20px;
+  /* &__form
+  {
+
+  } */
 }
 .access-screen__title {
-  font-size: 3rem;
-}
-.access-screen__form {
-  width: 100%;
+  font-size: 2.5em;
 }
 .access-screen__input {
-  width: 100%;
-  font-size: xx-large;
+  width: 95vw;
+  max-width: 640px;
+  font-size: x-large;
 }
 .access-screen__tip {
   font-size: x-large;

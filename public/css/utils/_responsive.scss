@@ -5,10 +5,17 @@ $xl: 1440px;
 
 @mixin lessThan($breakpoint)
 {
-    @media screen and (max-width: $breakpoint)
-    {
-        @content;
-    }
+    $breakpoints: (
+        sm: $sm,
+        md: $md,
+        lg: $lg,
+        xl: $xl
+    );
+
+@media screen and (max-width: map-get($breakpoints, $breakpoint))
+{
+    @content;
+}
 }
 
 @mixin hideLessThan($breakpoint)

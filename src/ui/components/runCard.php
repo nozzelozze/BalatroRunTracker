@@ -19,5 +19,5 @@
             </div>
         </div>
     </a>
-    <button class="runs__card__remove button--red" onclick="event.preventDefault(); event.stopPropagation(); onRemoveRun(<?= $run['RunID'] ?>)">Remove</button>
+    <button class="button button--red runs__card__remove" onclick="event.preventDefault(); event.stopPropagation(); onRemoveRun(<?= $run['RunID'] ?>)">Remove</button>
 </div>
