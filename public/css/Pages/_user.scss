@@ -1,5 +1,6 @@
 @use ".././utils/palette" as palette;
 @use ".././utils/utils" as utils;
+@use ".././utils/responsive" as responsive;
 
 .user
 {
@@ -10,9 +11,11 @@
     .statistics
     {
         display: flex;
-        flex-wrap: wrap;
         gap: 20px;
-        margin-bottom: 40px;
+        @include responsive.lessThan(md)
+        {
+            flex-direction: column;
+        }
 
         &__item
         {
@@ -20,7 +23,7 @@
             border-radius: 8px;
             padding: 20px;
             flex: 1 1 calc(25% - 20px);
-            min-width: 150px;
+            min-width: 200px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -49,24 +52,21 @@
 
     .header
     {
-        background: palette.blue(2);
+        background: palette.blue(3);
         padding: 20px;
 
         &__banner
         {
-            display: flex;
-            align-items: center;
+            @include utils.flex-row(20px);
 
             .header__avatar
             {
                 img
                 {
-                    width: 60px;
-                    height: 60px;
+                    width: 52px;
+                    height: 52px;
                     border-radius: 50%;
                 }
-
-                margin-right: 20px;
             }
 
             .header__info
@@ -76,12 +76,12 @@
 
                 .header__username
                 {
-                    font-size: 1.8rem;
+                    font-size: 1.6rem;
                 }
 
                 .header__joined
                 {
-                    font-size: 1.3rem;
+                    font-size: 1.2rem;
                 }
             }
         }
