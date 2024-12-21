@@ -1,4 +1,5 @@
 import ApiClient from "../api/ApiClient.js";
+import showSnackbar from "../ui/snackbar.js";
 
 class FormHandler
 {
@@ -16,7 +17,31 @@ FormHandler.addForm("submit-run-form", event =>
     const formData = new FormData(event.target)
     const data = Object.fromEntries(formData.entries())
     data["UserID"] = 1;
-    new ApiClient().POST("runs", data)
+
+    const loader = document.querySelector(".loader")
+    if (loader)
+    {
+        loader.className = "loader"
+    }
+
+
+    setTimeout(async () =>
+    {
+        const client = new ApiClient()
+        let response = await client.POST("runs", data)
+        let responseData = await response.json()
+        if (loader)
+        {
+            loader.className = "loader loader--hide"
+        }
+        if (response.ok)
+        {
+            window.location.href = "/run/" + responseData.result
+        } else
+        {
+            showSnackbar("Something went wrong: " + responseData.error)
+        }
+    }, 500)
 })
 
 FormHandler.addForm("login-form", event =>

@@ -13,6 +13,22 @@
     animation: skeleton-loading 1s linear infinite alternate;
 }
 
+.loader
+{
+    width: 24px;
+    height: 24px;
+    border: 4px solid #000000;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+
+    &--hide
+    {
+        display: none;
+    }
+}
 
 .menu
 {
@@ -210,6 +226,7 @@ $button-variants: (
     {
         width: 100%;
         font-size: x-large;
+        @include utils.flex-row(10px);
     }
 
     &__label

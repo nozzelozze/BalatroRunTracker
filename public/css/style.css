@@ -261,6 +261,14 @@ Uses function for static colors just to remain consistent
   }
 }
 
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes skeleton-loading {
   0% {
     background-color: hsl(196, 9%, 34%);
@@ -295,6 +303,20 @@ Uses function for static colors just to remain consistent
 .skeleton {
   border-radius: 15px;
   animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.loader {
+  width: 24px;
+  height: 24px;
+  border: 4px solid #000000;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader--hide {
+  display: none;
 }
 
 .menu {
@@ -486,6 +508,11 @@ Uses function for static colors just to remain consistent
 .form-screen__input {
   width: 100%;
   font-size: x-large;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 .form-screen__label {
   font-size: x-large;

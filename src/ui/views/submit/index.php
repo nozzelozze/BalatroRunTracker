@@ -42,6 +42,9 @@
         <input class="form-screen__input" type="text" name="DefeatedBy" id="DefeatedBy" required />
         </div>
 
-        <button class="button form-screen__input button--blue" type="submit">Submit Run</button>
+        <button class="button form-screen__input button--blue" type="submit">
+            Submit Run
+            <span class="loader loader--hide"></span>
+        </button>
     </form>
 </div>
