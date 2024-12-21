@@ -21,7 +21,7 @@ class UserService extends Service
                 u.Username,
                 u.CreatedAt,
                 MAX(r.Ante) AS HighestAnte, 
-                MAX(r.Score) AS HighestScore, 
+                MAX(r.BestHand) AS BestHand, 
                 COUNT(r.RunID) AS RunsCompleted
             FROM 
                 USERS u

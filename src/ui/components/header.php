@@ -10,7 +10,7 @@
             <i class="fa-solid fa-house"></i>
             <span>Home</span>
         </a>
-        <a href="/new" class="button button--black header__button">
+        <a href="/submit" class="button button--black header__button">
             <i class="fa-solid fa-plus"></i>
             <span>Submit</span>
         </a>

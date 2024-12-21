@@ -22,7 +22,7 @@ $routes = [
     "signup" => fn() => include VIEWS . "signup" . $i,
     "user" => fn() => include VIEWS . "user" . $i,
     "run" => fn() => include VIEWS . "run" . $i,
-    "new" => fn() => include VIEWS . "new" . $i,
+    "submit" => fn() => include VIEWS . "submit" . $i,
     "api" => fn() => $apiRouter->route(array_values($parts)[1])
 ];
 

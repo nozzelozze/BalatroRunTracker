@@ -21,17 +21,62 @@ class RunService extends Service
     public static function create($data = null)
     {
         $sql = DBService::getInstance()->connection;
-
-        $res = $sql->query("
-        INSERT INTO RUNS (UserID, Score)
-        VALUES (1, ".intval($data["Score"]).")");
-        if (!$res)
-        {
+    
+        $userID = intval($data["UserID"]);
+        $runName = $sql->real_escape_string($data["RunName"]);
+        $runDescription = $sql->real_escape_string($data["RunDescription"]);
+        $bestHand = intval($data["BestHand"]);
+        $mostPlayedHand = $sql->real_escape_string($data["MostPlayedHand"]);
+        $cardsPlayed = intval($data["CardsPlayed"]);
+        $cardsDiscarded = intval($data["CardsDiscarded"]);
+        $cardsPurchased = intval($data["CardsPurchased"]);
+        $timesRerolled = intval($data["TimesRerolled"]);
+        $seed = $sql->real_escape_string($data["Seed"]);
+        $ante = intval($data["Ante"]);
+        $round = intval($data["Round"]);
+        $defeatedBy = $sql->real_escape_string($data["DefeatedBy"]);
+    
+        $query = "
+            INSERT INTO RUNS (
+                UserID, 
+                RunName,
+                RunDescription,
+                BestHand,
+                MostPlayedHand,
+                CardsPlayed,
+                CardsDiscarded,
+                CardsPurchased,
+                TimesRerolled,
+                Seed,
+                Ante,
+                Round,
+                DefeatedBy
+            ) VALUES (
+                $userID,
+                '$runName',
+                '$runDescription',
+                $bestHand,
+                '$mostPlayedHand',
+                $cardsPlayed,
+                $cardsDiscarded,
+                $cardsPurchased,
+                $timesRerolled,
+                '$seed',
+                $ante,
+                $round,
+                '$defeatedBy'
+            )
+        ";
+    
+        $res = $sql->query($query);
+    
+        if (!$res) {
             return ["error" => $sql->error, "success" => false];
         }
-
-        return ["success" => true, "result" => $res];
+    
+        return ["success" => true, "result" => $sql->insert_id];
     }
+    
 
     public static function read($data = null)
     {
@@ -43,16 +88,19 @@ class RunService extends Service
             $query = "
             SELECT
                 RUNS.RunID,
-                RUNS.UserID,
-                USERS.Username,
-                RUNS.Score,
-                RUNS.SubmittedAt,
-                RUNS.MostPlayedHand,
-                RUNS.BestHand,
+                RUNS.UserID, 
                 RUNS.RunName,
+                RUNS.RunDescription,
+                RUNS.BestHand,
+                RUNS.MostPlayedHand,
                 RUNS.CardsPlayed,
+                RUNS.CardsDiscarded,
+                RUNS.CardsPurchased,
+                RUNS.TimesRerolled,
+                RUNS.Seed,
                 RUNS.Ante,
-                RUNS.RunDescription
+                RUNS.Round,
+                RUNS.DefeatedBy
             FROM
                 RUNS
             JOIN
@@ -66,16 +114,19 @@ class RunService extends Service
             $query = "
             SELECT
                 RUNS.RunID,
-                RUNS.UserID,
-                USERS.Username,
-                RUNS.Score,
-                RUNS.SubmittedAt,
-                RUNS.MostPlayedHand,
-                RUNS.BestHand,
+                RUNS.UserID, 
                 RUNS.RunName,
+                RUNS.RunDescription,
+                RUNS.BestHand,
+                RUNS.MostPlayedHand,
                 RUNS.CardsPlayed,
+                RUNS.CardsDiscarded,
+                RUNS.CardsPurchased,
+                RUNS.TimesRerolled,
+                RUNS.Seed,
                 RUNS.Ante,
-                RUNS.RunDescription
+                RUNS.Round,
+                RUNS.DefeatedBy
             FROM
                 RUNS
             JOIN
@@ -89,16 +140,19 @@ class RunService extends Service
             $query = "
             SELECT
                 RUNS.RunID,
-                RUNS.UserID,
-                USERS.Username,
-                RUNS.Score,
-                RUNS.SubmittedAt,
-                RUNS.MostPlayedHand,
-                RUNS.BestHand,
+                RUNS.UserID, 
                 RUNS.RunName,
+                RUNS.RunDescription,
+                RUNS.BestHand,
+                RUNS.MostPlayedHand,
                 RUNS.CardsPlayed,
+                RUNS.CardsDiscarded,
+                RUNS.CardsPurchased,
+                RUNS.TimesRerolled,
+                RUNS.Seed,
                 RUNS.Ante,
-                RUNS.RunDescription
+                RUNS.Round,
+                RUNS.DefeatedBy
             FROM
                 RUNS
             JOIN

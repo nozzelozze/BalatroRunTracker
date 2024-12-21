@@ -41,8 +41,8 @@ $runs = RunService::read(["UserID" => $userId])["result"];
     <h1>Statistics</h1>
     <div class="statistics">
     <div class="statistics__item">
-        <div class="statistics__value"><?= $user["HighestScore"] ?></div>
-        <div class="statistics__label">Highest Score</div>
+        <div class="statistics__value"><?= $user["BestHand"] ?></div>
+        <div class="statistics__label">Best Hand</div>
     </div>
     <div class="statistics__item">
         <div class="statistics__value"><?= $user["HighestAnte"] ?></div>

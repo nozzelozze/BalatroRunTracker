@@ -10,14 +10,17 @@ class FormHandler
     }
 }
 
-FormHandler.addForm("new-run-form", event => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
+FormHandler.addForm("submit-run-form", event =>
+{
+    event.preventDefault()
+    const formData = new FormData(event.target)
+    const data = Object.fromEntries(formData.entries())
+    data["UserID"] = 1;
     new ApiClient().POST("runs", data)
 })
 
-FormHandler.addForm("login-form", event => {
+FormHandler.addForm("login-form", event =>
+{
     event.preventDefault();
     new ApiClient().POST("login", {})
 })

@@ -440,7 +440,7 @@ Uses function for static colors just to remain consistent
   background-color: #2F2F34;
 }
 
-.access-screen {
+.form-screen {
   width: 100%;
   padding-top: 50px;
   display: flex;
@@ -448,29 +448,41 @@ Uses function for static colors just to remain consistent
   justify-content: center;
   align-items: center;
   gap: 20px;
-  /* &__form
-  {
-
-  } */
 }
-.access-screen__title {
+.form-screen__title {
   font-size: 2.5em;
 }
-.access-screen__input {
-  width: 95vw;
-  max-width: 640px;
-  font-size: x-large;
+.form-screen__title--align-start {
+  align-self: start;
 }
-.access-screen__tip {
-  font-size: x-large;
-}
-.access-screen form {
-  width: 50%;
+.form-screen__inputs {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  width: 100%;
+}
+.form-screen__input {
+  width: 100%;
+  font-size: x-large;
+}
+.form-screen__label {
+  font-size: x-large;
+  align-self: start;
+  margin-top: 20px;
+}
+.form-screen__tip {
+  font-size: x-large;
+}
+.form-screen__form {
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
 }
 
 input {
