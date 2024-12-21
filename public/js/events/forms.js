@@ -1,5 +1,5 @@
 import ApiClient from "../api/ApiClient.js";
-import showSnackbar from "../ui/snackbar.js";
+import { Snackbar } from "../ui/components.js";
 
 class FormHandler
 {
@@ -39,7 +39,7 @@ FormHandler.addForm("submit-run-form", event =>
             window.location.href = "/run/" + responseData.result
         } else
         {
-            showSnackbar("Something went wrong: " + responseData.error)
+            Snackbar.show("Something went wrong: " + responseData.error)
         }
     }, 500)
 })

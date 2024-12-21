@@ -1,13 +1,10 @@
+import { Skeleton } from "../ui/components.js"
 import ApiClient from "../api/ApiClient.js"
-import Skeleton from "./skeleton.js"
-import showSnackbar from "./snackbar.js"
 
 const menus = document.querySelectorAll(".menu")
-
 menus.forEach(async menu =>
 {
     const menuItems = menu.querySelectorAll(".menu__item")
-
     menuItems.forEach(async item =>
     {
         item.addEventListener("click", async () =>
@@ -51,8 +48,11 @@ menus.forEach(async menu =>
 })
 
 
-const input = document.getElementById("comment-input");
 
+
+
+
+const input = document.getElementById("comment-input");
 input?.addEventListener("keypress", function (event)
 {
     if (event.key === "Enter")

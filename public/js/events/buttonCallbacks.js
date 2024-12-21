@@ -1,6 +1,5 @@
 import ApiClient from "../api/ApiClient.js";
-import Skeleton from "../ui/skeleton.js";
-import showSnackbar from "../ui/snackbar.js";
+import { Snackbar, Skeleton } from "../ui/components.js";
 
 
 const onRemoveRun = async (runId) =>
@@ -26,7 +25,7 @@ const onComment = async (runId, userId, username) =>
 
     if (!content)
     {
-        showSnackbar("Can't post empty comment...")
+        Snackbar.show("Can't post empty comment...")
         return
     }
 
@@ -59,7 +58,7 @@ const onComment = async (runId, userId, username) =>
 
         } else
         {
-            showSnackbar("Something went wrong...")
+            Snackbar.show("Something went wrong...")
             document.querySelector(".run__comments__list").innerHTML = ""
         }
     }, 900)

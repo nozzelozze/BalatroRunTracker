@@ -1,4 +1,4 @@
-import config from ".././dev/config.js"
+import config from "./config.js"
 
 class ApiClient
 {
