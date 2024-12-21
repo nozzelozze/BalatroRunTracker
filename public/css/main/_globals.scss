@@ -94,12 +94,19 @@
 
     &__card
     {
+
+          
         height: fit-content;
         width: 100%;
         @include utils.flex-column(20px);
         align-items: start;
         @include utils.box(palette.background(2));
+        @include utils.hover-effect();
 
+        &:hover:has(.runs__card__remove:hover),
+        &:hover:has(.user-badge:hover) {
+          @include utils.hover-effect(palette.background(2));
+        }
         &__bottom
         {
             width: 100%;
@@ -112,7 +119,6 @@
             width: 100%;
             font-size: 1.8rem;
             border-bottom: 1px solid white;
-            @include utils.hover-effect();
             padding: 5px;
             border-radius: 10px 10px 0 0;
         }

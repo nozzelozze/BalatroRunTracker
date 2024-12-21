@@ -375,6 +375,16 @@ Uses function for static colors just to remain consistent
   padding: 1.2rem;
   background-color: #151D28;
   border-radius: 6px;
+  transition-duration: 0.3s;
+}
+.runs__card:hover {
+  background-color: rgba(222, 222, 222, 0.3568627451);
+}
+.runs__card:hover:has(.runs__card__remove:hover), .runs__card:hover:has(.user-badge:hover) {
+  transition-duration: 0.3s;
+}
+.runs__card:hover:has(.runs__card__remove:hover):hover, .runs__card:hover:has(.user-badge:hover):hover {
+  background-color: #151D28;
 }
 .runs__card__bottom {
   width: 100%;
@@ -389,12 +399,8 @@ Uses function for static colors just to remain consistent
   width: 100%;
   font-size: 1.8rem;
   border-bottom: 1px solid white;
-  transition-duration: 0.3s;
   padding: 5px;
   border-radius: 10px 10px 0 0;
-}
-.runs__card__title:hover {
-  background-color: rgba(222, 222, 222, 0.3568627451);
 }
 .runs__card__description {
   font-size: medium;
