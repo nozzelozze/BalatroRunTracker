@@ -1,6 +1,6 @@
 <div class="run__comments__comment">
     <a class="user-badge" href="/user/<?= $comment["UserID"] ?>">
-        <img class="user-badge__avatar" src="/assets/logo.png">
+        <img class="user-badge__avatar" src="/assets/pfp/<?= $comment["ProfilePictureIndex"] ?>.png">
         <div class="user-badge__metadata">
             <div class="user-badge__username">
                 <?= $comment["Username"] ?>

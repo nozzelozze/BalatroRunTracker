@@ -88,7 +88,10 @@ class RunService extends Service
             $query = "
             SELECT
                 RUNS.RunID,
-                RUNS.UserID, 
+                RUNS.UserID,
+                RUNS.SubmittedAt,
+                USERS.ProfilePictureIndex,
+                USERS.Username,
                 RUNS.RunName,
                 RUNS.RunDescription,
                 RUNS.BestHand,
@@ -114,7 +117,10 @@ class RunService extends Service
             $query = "
             SELECT
                 RUNS.RunID,
-                RUNS.UserID, 
+                RUNS.UserID,
+                RUNS.SubmittedAt,
+                USERS.ProfilePictureIndex,
+                USERS.Username,
                 RUNS.RunName,
                 RUNS.RunDescription,
                 RUNS.BestHand,
@@ -140,7 +146,10 @@ class RunService extends Service
             $query = "
             SELECT
                 RUNS.RunID,
-                RUNS.UserID, 
+                RUNS.UserID,
+                RUNS.SubmittedAt,
+                USERS.ProfilePictureIndex,
+                USERS.Username,
                 RUNS.RunName,
                 RUNS.RunDescription,
                 RUNS.BestHand,

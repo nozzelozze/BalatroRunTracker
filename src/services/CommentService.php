@@ -41,7 +41,8 @@ class CommentService extends Service
                 COMMENTS.Content,
                 COMMENTS.CreatedAt,
                 USERS.Username,
-                USERS.UserID
+                USERS.UserID,
+                USERS.ProfilePictureIndex
             FROM
                 COMMENTS
             JOIN
@@ -59,6 +60,7 @@ class CommentService extends Service
                 COMMENTS.CreatedAt,
                 USERS.Username,
                 USERS.UserID,
+                USERS.ProfilePictureIndex,
                 COMMENTS.UserID AS CommentUserID
             FROM
                 COMMENTS
@@ -77,7 +79,8 @@ class CommentService extends Service
                 COMMENTS.Content,
                 COMMENTS.CreatedAt,
                 USERS.Username,
-                USERS.UserID
+                USERS.UserID,
+                USERS.ProfilePictureIndex
             FROM
                 COMMENTS
             JOIN

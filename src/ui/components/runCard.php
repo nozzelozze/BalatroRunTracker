@@ -9,7 +9,7 @@
     </div>
     <div class="runs__card__bottom">
         <a class="user-badge" href="/user/<?= $run["UserID"] ?>">
-            <img class="user-badge__avatar" src="/assets/logo.png">
+            <img class="user-badge__avatar" src="/assets/pfp/<?= $run["ProfilePictureIndex"] ?>.png">
             <div class="user-badge__metadata">
                 <div class="user-badge__username">
                     <?= $run["Username"] ?>

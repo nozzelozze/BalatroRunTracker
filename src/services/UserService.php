@@ -20,6 +20,7 @@ class UserService extends Service
                 u.UserID, 
                 u.Username,
                 u.CreatedAt,
+                u.ProfilePictureIndex,
                 MAX(r.Ante) AS HighestAnte, 
                 MAX(r.BestHand) AS BestHand, 
                 COUNT(r.RunID) AS RunsCompleted

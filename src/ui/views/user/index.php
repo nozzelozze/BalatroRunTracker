@@ -26,7 +26,7 @@ $runs = RunService::read(["UserID" => $userId])["result"];
     <header class="header">
         <div class="header__banner">
             <div class="header__avatar">
-                <img src="/assets/logo.png" />
+                <img src="/assets/pfp/<?= $user["ProfilePictureIndex"] ?>.png" />
             </div>
             <div class="header__info">
                 <div class="header__username">
