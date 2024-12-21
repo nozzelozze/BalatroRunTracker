@@ -260,6 +260,15 @@ Uses function for static colors just to remain consistent
     display: none;
   }
 }
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(196, 9%, 34%);
+  }
+  100% {
+    background-color: hsl(203, 15%, 17%);
+  }
+}
 @keyframes fadein {
   from {
     bottom: 0;
@@ -283,6 +292,11 @@ Uses function for static colors just to remain consistent
 /* 
     Anything that is used in multiple places.
 */
+.skeleton {
+  border-radius: 15px;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
 .menu {
   width: 100%;
 }

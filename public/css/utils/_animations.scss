@@ -1,4 +1,18 @@
 
+@keyframes skeleton-loading
+{
+    0%
+    {
+        background-color: hsl(196, 9%, 34%);
+    }
+
+    100%
+    {
+        background-color: hsl(203, 15%, 17%);
+    }
+}
+
+
 @-webkit-keyframes fadein
 {
     from

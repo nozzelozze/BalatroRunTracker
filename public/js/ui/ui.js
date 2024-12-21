@@ -1,4 +1,5 @@
 import ApiClient from "../api/ApiClient.js"
+import Skeleton from "./skeleton.js"
 import showSnackbar from "./snackbar.js"
 
 const menus = document.querySelectorAll(".menu")
@@ -20,21 +21,29 @@ menus.forEach(async menu =>
 
             if (parentMenuId == "runs-menu")
             {
-                let client = new ApiClient()
+                const runs = document.querySelector(".runs")
+                const runElement = document.querySelector(".runs__card")
+                let height = runElement ? getComputedStyle(runElement).height : "200px"
+                runs.innerHTML = Array(5).fill().map(() => Skeleton.fromParams("100%", height).outerHTML).join('')
 
-                let response;
-                if (sectionId == "new")
+
+                setTimeout(async () =>
                 {
-                    response = await client.PARTIAL("runs", { orderBy: "RUNS.SubmittedAt" })
-                } else if (sectionId == "highscore")
-                {
-                    response = await client.PARTIAL("runs", { orderBy: "RUNS.Score" })
-                } else if (sectionId == "ante")
-                {
-                    response = await client.PARTIAL("runs", { orderBy: "RUNS.Ante" })
-                }
-                const runs = document.querySelector(".runs");
-                runs.innerHTML = await response.text();
+                    let client = new ApiClient()
+
+                    let response;
+                    if (sectionId == "new")
+                    {
+                        response = await client.PARTIAL("runs", { orderBy: "RUNS.SubmittedAt" })
+                    } else if (sectionId == "highscore")
+                    {
+                        response = await client.PARTIAL("runs", { orderBy: "RUNS.BestHand" })
+                    } else if (sectionId == "ante")
+                    {
+                        response = await client.PARTIAL("runs", { orderBy: "RUNS.Ante" })
+                    }
+                    runs.innerHTML = await response.text();
+                }, 900)
             }
 
         })

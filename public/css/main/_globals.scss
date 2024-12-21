@@ -7,9 +7,17 @@
     Anything that is used in multiple places.
 */
 
+.skeleton
+{
+    @include utils.rounded(2);
+    animation: skeleton-loading 1s linear infinite alternate;
+}
+
+
 .menu
 {
     width: 100%;
+
     @include r.lessThan(lg)
     {
         flex-direction: row;
@@ -95,7 +103,7 @@
     &__card
     {
 
-          
+
         height: fit-content;
         width: 100%;
         @include utils.flex-column(20px);
@@ -104,15 +112,17 @@
         @include utils.hover-effect();
 
         &:hover:has(.runs__card__remove:hover),
-        &:hover:has(.user-badge:hover) {
-          @include utils.hover-effect(palette.background(2));
+        &:hover:has(.user-badge:hover)
+        {
+            @include utils.hover-effect(palette.background(2));
         }
+
         &__bottom
         {
             width: 100%;
             @include utils.flex-row();
             justify-content: space-between;
-        }    
+        }
 
         &__title
         {
@@ -189,7 +199,7 @@ $button-variants: (
             align-self: start;
         }
     }
-    
+
     &__inputs
     {
         @include utils.flex-column(10px);
