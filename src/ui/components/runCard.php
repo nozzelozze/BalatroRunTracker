@@ -1,3 +1,6 @@
+<?php
+?>
+
 <div class="runs__card" id="run-<?= $run["RunID"] ?>" style="cursor: pointer;" onclick="
     if (!event.target.closest('.runs__card__remove, .user-badge')) {
         window.location.href = '/run/<?= $run["RunID"] ?>';
@@ -12,7 +15,6 @@
     </div>
 
     <div class="runs__card__bottom">
-        <!-- User badge stays a valid link, but clicking it won’t trigger navigation to the run -->
         <a class="user-badge" href="/user/<?= $run["UserID"] ?>">
             <img class="user-badge__avatar" src="/assets/pfp/<?= $run["ProfilePictureIndex"] ?>.png">
             <div class="user-badge__metadata">
@@ -27,13 +29,17 @@
                 </div>
             </div>
         </a>
-
-        <button class="button button--red runs__card__remove" onclick="
-              event.preventDefault();
-              event.stopPropagation();
-              onRemoveRun(<?= $run['RunID'] ?>);
-            ">
-            Remove
-        </button>
+        
+        <?php if (isset($_SESSION["LOGGED_IN_USER"])): ?>
+            <?php if ($_SESSION["LOGGED_IN_USER"]["IsAdmin"] == true): ?>
+                <button class="button button--red runs__card__remove" onclick="
+                      event.preventDefault();
+                      event.stopPropagation();
+                      onRemoveRun(<?= $run['RunID'] ?>);
+                    ">
+                    Remove
+                </button>
+                <?php endif; ?>
+        <?php endif; ?>
     </div>
 </div>

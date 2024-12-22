@@ -1,5 +1,5 @@
 <?php
 require SERVICES."AuthService.php";
 require API."handleApiRequest.php";
-handleApiRequest(null, [AuthService::class, "login"])
+handleApiRequest([AuthService::class, "login"])
 ?>

@@ -5,13 +5,11 @@ require SERVICES . "CommentService.php";
 $runId = basename($_SERVER["REQUEST_URI"]);
 $runRes = RunService::read(["RunID" => $runId]);
 
-if ($runRes["success"])
-{
+if ($runRes["success"]) {
     $run = $runRes["result"];
-} else
-{
+} else {
     $not_found_message_404 = "Run does not exist";
-    include VIEWS."404/index.php";
+    include VIEWS . "404/index.php";
     return;
 }
 
@@ -74,16 +72,22 @@ $comments = CommentService::read(["RunID" => $runId])["result"];
 
     <div class="run__comments">
         <h2 class="run__comments__title">Comments</h2>
-
         <div class="run__comments__input">
-            <img class="run__comments__avatar" src="/assets/logo.png">
-            <input type="text" class="run__comments__text-input" id="comment-input" placeholder="Add comment..." />
-            <button class="button" id="comment-button" onclick="onComment(<?= $run['RunID'] ?>, <?= $run['UserID'] ?>, '<?= $run['Username'] ?>')">Comment</button>
+            <?php if (isset($_SESSION["LOGGED_IN_USER"])): ?>
+                <img class="run__comments__avatar"
+                    src="/assets/pfp/<?= $_SESSION["LOGGED_IN_USER"]["ProfilePictureIndex"] ?>.png">
+                <input type="text" class="run__comments__text-input" id="comment-input" placeholder="Add comment..." />
+                <button class="button" id="comment-button"
+                    onclick="onComment(<?= $run['RunID'] ?>, <?= $run['UserID'] ?>, '<?= $run['Username'] ?>')">Comment</button>
+            <?php else: ?>
+                <input type="text" class="run__comments__text-input" id="comment-input" placeholder="Login to comment..." disabled/>
+                <button class="button" disabled>Comment</button>
+            <?php endif; ?>
         </div>
 
         <div class="run__comments__list">
             <?php foreach ($comments as $comment): ?>
-                <?php include COMPONENTS."comment.php"; ?>
+                <?php include COMPONENTS . "comment.php"; ?>
             <?php endforeach; ?>
         </div>
     </div>

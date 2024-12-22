@@ -1,6 +1,16 @@
 <?php
 include "../src/utils/constants.php";
-require UTILS . "Router.php";
+require UTILS."Router.php";
+require_once SERVICES."UserService.php";
+
+if (isset($_COOKIE["UserID"])) {
+    $response = UserService::read(["id" => $_COOKIE["UserID"]]);
+    if ($response["success"]) {
+        $_SESSION["LOGGED_IN_USER"] = $response["result"];
+    } else {
+        $_SESSION["LOGGED_IN_USER"] = null;
+    }
+}
 
 ob_start();
 
@@ -23,7 +33,8 @@ $routes = [
     "user" => fn() => include VIEWS . "user" . $i,
     "run" => fn() => include VIEWS . "run" . $i,
     "submit" => fn() => include VIEWS . "submit" . $i,
-    "api" => fn() => $apiRouter->route(array_values($parts)[1])
+    "api" => fn() => $apiRouter->route(array_values($parts)[1]),
+    "logout" => fn() => include API . "logout.php"
 ];
 
 $router = new Router($routes);

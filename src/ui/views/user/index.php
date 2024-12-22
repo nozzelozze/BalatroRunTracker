@@ -1,6 +1,6 @@
 <?php
-require SERVICES . "UserService.php";
-require SERVICES . "RunService.php";
+require_once SERVICES . "UserService.php";
+require_once SERVICES . "RunService.php";
 
 $userId = basename($_SERVER["REQUEST_URI"]);
 
@@ -60,7 +60,9 @@ $runs = RunService::read(["UserID" => $userId])["result"];
     <h1>Runs</h1>
     <div class="runs">
         <?php
-         foreach ($runs as $run) {
+         foreach ($runs as $run)
+         {
+            $LOGGED_IN_USER = isset($LOGGED_IN_USER) ? $LOGGED_IN_USER : null;
             include COMPONENTS . "runCard.php";
         }
         ?>

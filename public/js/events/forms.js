@@ -44,8 +44,21 @@ FormHandler.addForm("submit-run-form", event =>
     }, 500)
 })
 
-FormHandler.addForm("login-form", event =>
+FormHandler.addForm("login-form", async event =>
 {
     event.preventDefault();
-    new ApiClient().POST("login", {})
+    const formData = new FormData(event.target)
+    const data = Object.fromEntries(formData.entries())
+    
+    let client = new ApiClient();
+    let response = await client.POST("login", data)
+    let responseData = await response.json();
+
+    if (response.ok)
+    {
+        window.location.href = "/"
+    } else
+    {
+        Snackbar.show(responseData.error)
+    }
 })

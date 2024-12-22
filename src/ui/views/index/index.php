@@ -34,7 +34,9 @@ $newRuns = RunService::read(["orderBy" => "RUNS.SubmittedAt"])["result"];
 
     <div class="runs">
         <?php
-        foreach ($newRuns as $run) {
+        foreach ($newRuns as $run)
+        {
+            $LOGGED_IN_USER = isset($LOGGED_IN_USER) ? $LOGGED_IN_USER : null;
             include COMPONENTS . "runCard.php";
         }
         ?>
