@@ -15,16 +15,15 @@ end
 
 local createOptionsRef = create_UIBox_win
 function create_UIBox_win()
-	contents = createOptionsRef()
-	local share_button = UIBox_button({
+	local contents = createOptionsRef()
+	local exit_button = UIBox_button({
 		minw = 5,
-		button = "share_button",
+		button = "exit_button",
 		label = {
-			"Win Button"
+			"Exit Game"
 		}
 	})
-
-	--table.insert(contents.nodes[1], #contents.nodes[1] + 1, share_button)
+	table.insert(contents. nodes[1].nodes[1].nodes[1].nodes[1].nodes[2].nodes[1].nodes[1].nodes[1].nodes, #contents.nodes[1].nodes[1].nodes[1].nodes[1].nodes[2].nodes[1].nodes[1].nodes[1].nodes + 1, exit_button)
 	return contents
 end
 
