@@ -8,6 +8,13 @@
     display: flex;
     flex-direction: column;
 
+    .relations
+    {
+        @include utils.flex-row();
+        justify-content: start;
+        flex-wrap: wrap;
+    }
+
     .statistics
     {
         display: flex;

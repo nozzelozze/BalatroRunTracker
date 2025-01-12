@@ -8,6 +8,15 @@ Uses function for static colors just to remain consistent
   display: flex;
   flex-direction: column;
 }
+.user .relations {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  justify-content: start;
+  flex-wrap: wrap;
+}
 .user .statistics {
   display: flex;
   gap: 20px;
