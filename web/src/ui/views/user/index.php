@@ -37,6 +37,14 @@ $runs = RunService::read(["UserID" => $userId])["result"];
                 </div>
             </div>
         </div>
+        <div class="header__user-relationships">
+            <a href="/user/<?= $userId ?>/following" class="header__user-relationships__link">
+                <?= $user["FollowingCount"] ?> Following
+            </a>
+            <a href="/user/<?= $userId ?>/followers" class="header__user-relationships__link">
+                <?= $user["FollowersCount"] ?> Followers
+            </a>
+        </div>
     </header>
     <h1>Statistics</h1>
     <div class="statistics">

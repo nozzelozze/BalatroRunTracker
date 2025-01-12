@@ -54,6 +54,22 @@
     {
         background: palette.blue(3);
         padding: 20px;
+        @include utils.flex-row();
+        justify-content: space-between;
+
+        &__user-relationships
+        {
+            @include utils.flex-row(20px);
+            font-size: 1.2rem;
+
+            &__link
+            {
+                &:hover
+                {
+                    text-decoration: underline;
+                }
+            }
+        }
 
         &__banner
         {

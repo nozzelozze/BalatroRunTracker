@@ -44,6 +44,23 @@ Uses function for static colors just to remain consistent
 .user .header {
   background: #008ae2;
   padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0px;
+  justify-content: space-between;
+}
+.user .header__user-relationships {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-size: 1.2rem;
+}
+.user .header__user-relationships__link:hover {
+  text-decoration: underline;
 }
 .user .header__banner {
   display: flex;
