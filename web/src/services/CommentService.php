@@ -10,10 +10,11 @@ class CommentService extends Service
 
         $content = $sql->real_escape_string($data["Content"]);
         $runID = intval($data["RunID"]);
+        $userID = intval($data["UserID"]);
 
         $res = $sql->query("
             INSERT INTO COMMENTS (UserID, RunID, Content)
-            VALUES (1, $runID, '$content')
+            VALUES ($userID, $runID, '$content')
         ");
 
         if (!$res)

@@ -1,6 +1,6 @@
 import ApiClient from "../api/ApiClient.js";
 import { Snackbar } from "../ui/components.js";
-
+import { getCookie } from "../misc/misc.js";
 class FormHandler
 {
     static addForm(formId, callback)
@@ -16,7 +16,7 @@ FormHandler.addForm("submit-run-form", event =>
     event.preventDefault()
     const formData = new FormData(event.target)
     const data = Object.fromEntries(formData.entries())
-    data["UserID"] = 1;
+    data["UserID"] = getCookie("UserID");
 
     const loader = document.querySelector(".loader")
     if (loader)

@@ -41,9 +41,10 @@ class ApiClient
         return res
     }
 
-    async DELETE(path)
+    async DELETE(path, params = {})
     {
-        const res = await fetch(`${config.API_URL}${path}`, {
+        params = new URLSearchParams(params).toString()
+        const res = await fetch(`${config.API_URL}${path}?${params}`, {
             method: "DELETE",
             headers: {
                 "Accept": "application/json",

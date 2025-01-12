@@ -198,6 +198,15 @@ $button-variants: (
             }
         }
     }
+
+    &--dangerous
+    {
+        &:hover
+        {
+            background-color: palette.red(3);
+            color: palette.red(1);
+        }
+    }
 }
 
 .form-screen

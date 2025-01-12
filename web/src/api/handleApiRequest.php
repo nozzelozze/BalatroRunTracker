@@ -51,7 +51,7 @@ function handleApiRequest(
             http_response_code(405);
         } else
         {
-            $response = $deleteHandler();
+            $response = $deleteHandler($_GET);
             echo json_encode($response);
         }
     } else

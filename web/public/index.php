@@ -20,7 +20,8 @@ $apiRoutes = [
     "runs" => fn() => include API . "runs.php",
     "logout" => fn() => include API . "logout.php",
     "login" => fn() => include API . "login.php",
-    "comments" => fn() => include API . "comments.php"
+    "comments" => fn() => include API . "comments.php",
+    "follow" => fn() => include API . "follow.php"
 ];
 
 $apiRouter = new Router($apiRoutes);

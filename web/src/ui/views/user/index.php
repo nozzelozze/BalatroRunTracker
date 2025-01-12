@@ -10,62 +10,83 @@ $lastSegment = end($parts);
 $isFollowers = ($lastSegment === "followers");
 $isFollowing = ($lastSegment === "following");
 
-if ($isFollowers || $isFollowing)
-{
+if ($isFollowers || $isFollowing) {
     array_pop($parts);
     $userId = end($parts);
-} else
-{
+} else {
     $userId = $lastSegment;
+}
+
+$isViewingOwnProfile = false;
+if (isset($_SESSION["LOGGED_IN_USER"])) {
+    if ($_SESSION["LOGGED_IN_USER"]["UserID"] == $userId) {
+        $isViewingOwnProfile = true;
+    }
 }
 
 $userRes = UserService::read((["id" => $userId]));
 
-if ($userRes["success"])
-{
+if ($userRes["success"]) {
     $user = $userRes["result"];
-} else
-{
+} else {
     $not_found_message_404 = "User does not exist";
     include VIEWS . "404/index.php";
     return;
 }
 
-if ($isFollowers)
-{
+if ($isFollowers) {
     $followersRes = FollowService::read((["FollowingID" => $userId]));
     $followers = $followersRes["result"];
 }
-if ($isFollowing)
-{
+if ($isFollowing) {
     $followingRes = FollowService::read((["FollowerID" => $userId]));
     $following = $followingRes["result"];
 }
 
-if (!$isFollowers && !$isFollowing)
-{
+if (!$isFollowers && !$isFollowing) {
     $runs = RunService::read(["UserID" => $userId])["result"];
+}
+
+
+if (isset($_SESSION["LOGGED_IN_USER"])) {
+    $loggedInUserFollowings = FollowService::read(["FollowerID" => $_SESSION["LOGGED_IN_USER"]["UserID"]])["result"];
+    $loggedInUserFollowing = false;
+    foreach ($loggedInUserFollowings as $loggedInUserFollow) {
+        if ($loggedInUserFollow["UserID"] == $userId) {
+            $loggedInUserFollowing = true;
+        }
+    }
 }
 
 ?>
 
-
-
 <div class="user">
     <header class="header">
-        <a class="header__banner" href="/user/<?= $userId ?>">
-            <div class="header__avatar">
-                <img src="/assets/pfp/<?= $user["ProfilePictureIndex"] ?>.png" />
-            </div>
-            <div class="header__info">
-                <div class="header__username">
-                    <?= $user["Username"] ?>
+        <div class="header__banner">
+            <a href="/user/<?= $userId ?>" class="header__profile">
+                <div class="header__avatar">
+                    <img src="/assets/pfp/<?= $user["ProfilePictureIndex"] ?>.png" />
                 </div>
-                <div class="header__joined">
-                    Joined <?= date('F Y', strtotime($user["CreatedAt"])) ?>
+                <div class="header__info">
+                    <div class="header__username">
+                        <?= $user["Username"] ?>
+                    </div>
+                    <div class="header__joined">
+                        Joined <?= date('F Y', strtotime($user["CreatedAt"])) ?>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+            <?php if (!$isViewingOwnProfile): ?>
+                <button
+                    class="button button--black <?= $loggedInUserFollowing ? 'button--dangerous' : '' ?>"
+                    id="follow-button"
+                    onclick="onToggleFollow(<?= $userId ?>)"
+                    onmouseover="onFollowButtonHover()"
+                    onmouseout="onFollowButtonOut()">
+                    <?= $loggedInUserFollowing ? "Following" : "Follow" ?>
+                </button>
+            <?php endif; ?>
+        </div>
         <div class="header__user-relationships">
             <a href="/user/<?= $userId ?>/following" class="header__user-relationships__link">
                 <?= $user["FollowingCount"] ?> Following
@@ -93,7 +114,7 @@ if (!$isFollowers && !$isFollowing)
     <?php elseif ($isFollowing): ?>
         <h1>Following</h1>
         <div class="relations">
-        <?php foreach ($following as $user): ?>
+            <?php foreach ($following as $user): ?>
                 <a class="user-badge" href="/user/<?= $user["UserID"] ?>">
                     <img class="user-badge__avatar" src="/assets/pfp/<?= $user["ProfilePictureIndex"] ?>.png">
                     <div class="user-badge__metadata">

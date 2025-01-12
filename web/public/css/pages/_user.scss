@@ -78,6 +78,11 @@
             }
         }
 
+        &__profile
+        {
+            @include utils.flex-row(20px);
+        }
+
         &__banner
         {
             @include utils.flex-row(20px);

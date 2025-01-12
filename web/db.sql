@@ -33,7 +33,7 @@ CREATE TABLE `comments` (
   KEY `fk_comments_runid` (`RunID`),
   CONSTRAINT `fk_comments_runid` FOREIGN KEY (`RunID`) REFERENCES `runs` (`RunID`) ON DELETE CASCADE,
   CONSTRAINT `fk_comments_userid` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=164 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=165 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,8 +42,35 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (122,1,46,'2025-01-09 22:13:22','Amazing run with incredible focus!'),(123,2,47,'2025-01-09 22:13:22','Unbelievable marathon in Endless Mode!'),(124,3,48,'2025-01-09 22:13:22','Great try against The Hook!'),(125,4,49,'2025-01-09 22:13:22','Flawless execution in Perfect Run!'),(126,2,50,'2025-01-09 22:13:22','Tough challenge but well-played!'),(127,3,51,'2025-01-09 22:13:22','Smart decisions despite early exit!'),(128,1,52,'2025-01-09 22:13:22','Clever use of skips!'),(129,4,53,'2025-01-09 22:13:22','Unfortunate loss at the final hurdle!'),(130,3,54,'2025-01-09 22:13:22','Clutch play with a Straight Flush!'),(131,1,55,'2025-01-09 22:13:22','Aggressive strategy paid off!'),(132,2,56,'2025-01-09 22:13:22','Balanced playstyle worked well!'),(133,3,57,'2025-01-09 22:13:22','High risks can lead to big rewards!'),(134,4,58,'2025-01-09 22:13:22','Surged ahead in late-game!'),(135,2,59,'2025-01-09 22:13:22','Precise and calculated moves!'),(136,3,60,'2025-01-09 22:13:22','Almost made it past the Boss Blind!'),(137,1,46,'2025-01-09 22:13:22','Loved the focus in this run!'),(138,2,47,'2025-01-09 22:13:22','Amazing pace in Endless Mode!'),(139,3,48,'2025-01-09 22:13:22','The Hook is tough to beat!'),(140,4,49,'2025-01-09 22:13:22','Brilliant run from start to finish!'),(141,2,50,'2025-01-09 22:13:22','Boss Blind challenges are real!'),(142,3,51,'2025-01-09 22:13:22','Keep improving and trying!'),(143,1,52,'2025-01-09 22:13:22','Skipped wisely to win!'),(144,4,53,'2025-01-09 22:13:22','Next time, you’ll go further!'),(145,3,54,'2025-01-09 22:13:22','Straight Flush saved the day!'),(146,1,55,'2025-01-09 22:13:22','Impressive show of skill!'),(147,2,56,'2025-01-09 22:13:22','Great run with strong moves!'),(148,3,57,'2025-01-09 22:13:22','Risk-taking made it exciting!'),(149,4,58,'2025-01-09 22:13:22','A fantastic comeback in the end!'),(150,2,59,'2025-01-09 22:13:22','Careful planning shone through!'),(151,3,60,'2025-01-09 22:13:22','Near miss, but great effort!'),(152,1,46,'2025-01-09 22:13:22','Focus and determination stood out!'),(153,2,47,'2025-01-09 22:13:22','Endless Mode is no joke!'),(154,3,48,'2025-01-09 22:13:22','The Hook is a tricky opponent!'),(155,4,49,'2025-01-09 22:13:22','Flawless from start to finish!'),(156,2,50,'2025-01-09 22:13:22','Well done against the odds!'),(157,3,51,'2025-01-09 22:13:22','Never give up on early exits!'),(158,1,52,'2025-01-09 22:13:22','Smart skips led to victory!'),(159,4,53,'2025-01-09 22:13:22','You were so close to winning!'),(160,3,54,'2025-01-09 22:13:22','Straight Flush was clutch!'),(161,1,55,'2025-01-09 22:13:22','Aggression paid off well!'),(162,2,56,'2025-01-09 22:13:22','Balanced moves brought success!'),(163,3,57,'2025-01-09 22:13:22','High risk, high reward gameplay!');
+INSERT INTO `comments` VALUES (122,1,46,'2025-01-09 22:13:22','Amazing run with incredible focus!'),(123,2,47,'2025-01-09 22:13:22','Unbelievable marathon in Endless Mode!'),(124,3,48,'2025-01-09 22:13:22','Great try against The Hook!'),(125,4,49,'2025-01-09 22:13:22','Flawless execution in Perfect Run!'),(126,2,50,'2025-01-09 22:13:22','Tough challenge but well-played!'),(127,3,51,'2025-01-09 22:13:22','Smart decisions despite early exit!'),(128,1,52,'2025-01-09 22:13:22','Clever use of skips!'),(129,4,53,'2025-01-09 22:13:22','Unfortunate loss at the final hurdle!'),(130,3,54,'2025-01-09 22:13:22','Clutch play with a Straight Flush!'),(131,1,55,'2025-01-09 22:13:22','Aggressive strategy paid off!'),(132,2,56,'2025-01-09 22:13:22','Balanced playstyle worked well!'),(133,3,57,'2025-01-09 22:13:22','High risks can lead to big rewards!'),(134,4,58,'2025-01-09 22:13:22','Surged ahead in late-game!'),(135,2,59,'2025-01-09 22:13:22','Precise and calculated moves!'),(136,3,60,'2025-01-09 22:13:22','Almost made it past the Boss Blind!'),(137,1,46,'2025-01-09 22:13:22','Loved the focus in this run!'),(138,2,47,'2025-01-09 22:13:22','Amazing pace in Endless Mode!'),(139,3,48,'2025-01-09 22:13:22','The Hook is tough to beat!'),(140,4,49,'2025-01-09 22:13:22','Brilliant run from start to finish!'),(141,2,50,'2025-01-09 22:13:22','Boss Blind challenges are real!'),(142,3,51,'2025-01-09 22:13:22','Keep improving and trying!'),(143,1,52,'2025-01-09 22:13:22','Skipped wisely to win!'),(144,4,53,'2025-01-09 22:13:22','Next time, you’ll go further!'),(145,3,54,'2025-01-09 22:13:22','Straight Flush saved the day!'),(146,1,55,'2025-01-09 22:13:22','Impressive show of skill!'),(147,2,56,'2025-01-09 22:13:22','Great run with strong moves!'),(148,3,57,'2025-01-09 22:13:22','Risk-taking made it exciting!'),(149,4,58,'2025-01-09 22:13:22','A fantastic comeback in the end!'),(150,2,59,'2025-01-09 22:13:22','Careful planning shone through!'),(151,3,60,'2025-01-09 22:13:22','Near miss, but great effort!'),(152,1,46,'2025-01-09 22:13:22','Focus and determination stood out!'),(153,2,47,'2025-01-09 22:13:22','Endless Mode is no joke!'),(154,3,48,'2025-01-09 22:13:22','The Hook is a tricky opponent!'),(155,4,49,'2025-01-09 22:13:22','Flawless from start to finish!'),(156,2,50,'2025-01-09 22:13:22','Well done against the odds!'),(157,3,51,'2025-01-09 22:13:22','Never give up on early exits!'),(158,1,52,'2025-01-09 22:13:22','Smart skips led to victory!'),(159,4,53,'2025-01-09 22:13:22','You were so close to winning!'),(160,3,54,'2025-01-09 22:13:22','Straight Flush was clutch!'),(161,1,55,'2025-01-09 22:13:22','Aggression paid off well!'),(162,2,56,'2025-01-09 22:13:22','Balanced moves brought success!'),(163,3,57,'2025-01-09 22:13:22','High risk, high reward gameplay!'),(164,1,47,'2025-01-12 13:18:54','Test');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `follows`
+--
+
+DROP TABLE IF EXISTS `follows`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `follows` (
+  `FollowerID` int NOT NULL,
+  `FollowingID` int NOT NULL,
+  PRIMARY KEY (`FollowerID`,`FollowingID`),
+  KEY `FollowingID` (`FollowingID`),
+  CONSTRAINT `follows_ibfk_1` FOREIGN KEY (`FollowerID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE,
+  CONSTRAINT `follows_ibfk_2` FOREIGN KEY (`FollowingID`) REFERENCES `users` (`UserID`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `follows`
+--
+
+LOCK TABLES `follows` WRITE;
+/*!40000 ALTER TABLE `follows` DISABLE KEYS */;
+INSERT INTO `follows` VALUES (2,1),(3,1),(4,2),(1,3),(4,3),(2,4);
+/*!40000 ALTER TABLE `follows` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -72,7 +99,7 @@ CREATE TABLE `runs` (
   PRIMARY KEY (`RunID`),
   KEY `UserID` (`UserID`),
   CONSTRAINT `runs_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`)
-) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=62 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -122,4 +149,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-01-09 22:17:33
+-- Dump completed on 2025-01-12 13:55:02

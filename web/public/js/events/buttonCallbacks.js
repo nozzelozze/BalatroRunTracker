@@ -1,4 +1,5 @@
 import ApiClient from "../api/ApiClient.js";
+import { getCookie } from "../misc/misc.js";
 import { Snackbar, Skeleton } from "../ui/components.js";
 
 
@@ -43,7 +44,8 @@ const onComment = async (runId, userId, username) =>
     {
         let res = await client.POST("comments", {
             "RunID": runId,
-            "Content": content
+            "Content": content,
+            "UserID": getCookie("UserID")
         })
 
         if (res.ok)
@@ -64,3 +66,68 @@ const onComment = async (runId, userId, username) =>
     }, 900)
 }
 window.onComment = onComment;
+
+
+const onToggleFollow = async (userId) =>
+{
+    const followButton = document.getElementById("follow-button");
+    const currentText = followButton.innerText.trim().toLowerCase();
+
+    if (currentText === "follow")
+    {
+        let client = new ApiClient();
+        let res = await client.POST("follow", {
+            "FollowingID": userId,
+            "FollowerID": getCookie("UserID"),
+        });
+
+        if (res.ok)
+        {
+            followButton.innerText = "Unfollow";
+            followButton.classList.add("button--dangerous");
+        } else
+        {
+            let responseData = await res.json();
+            Snackbar.show("Error following: " + responseData.error);
+        }
+    } else
+    {
+        let client = new ApiClient();
+        let res = await client.DELETE("follow",
+            {
+                "FollowingID": userId,
+                "FollowerID": getCookie("UserID"),
+            });
+
+        if (res.ok)
+        {
+            followButton.innerText = "Follow";
+            followButton.classList.remove("button--dangerous");
+        } else
+        {
+            let responseData = await res.json();
+            Snackbar.show("Error unfollowing: " + responseData.error);
+        }
+    }
+};
+
+window.onToggleFollow = onToggleFollow;
+
+function onFollowButtonHover()
+{
+    const btn = document.getElementById("follow-button");
+    if (btn.innerText.trim().toLowerCase() === "following")
+    {
+        btn.innerText = "Unfollow";
+    }
+}
+function onFollowButtonOut()
+{
+    const btn = document.getElementById("follow-button");
+    if (btn.innerText.trim().toLowerCase() === "unfollow")
+    {
+        btn.innerText = "Following";
+    }
+}
+window.onFollowButtonHover = onFollowButtonHover;
+window.onFollowButtonOut = onFollowButtonOut;

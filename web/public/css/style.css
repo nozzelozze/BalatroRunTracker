@@ -71,6 +71,13 @@ Uses function for static colors just to remain consistent
 .user .header__user-relationships__link:hover {
   text-decoration: underline;
 }
+.user .header__profile {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 .user .header__banner {
   display: flex;
   flex-direction: row;
@@ -506,6 +513,10 @@ Uses function for static colors just to remain consistent
 }
 .button--black:hover {
   background-color: #2F2F34;
+}
+.button--dangerous:hover {
+  background-color: #c1413a;
+  color: #fe938e;
 }
 
 .form-screen {

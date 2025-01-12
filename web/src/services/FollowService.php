@@ -6,7 +6,30 @@ class FollowService extends Service
 {
     public static function create($data = null)
     {
-    }
+        if (!isset($data["FollowerID"]) || !isset($data["FollowingID"]))
+        {
+            return ["success" => false, "error" => "FollowerID or FollowingID is not set."];
+        }
+    
+        $followerID = intval($data["FollowerID"]);
+        $followingID = intval($data["FollowingID"]);
+    
+        $sql = DBService::getInstance()->connection;
+        $query = "
+            INSERT INTO Follows (FollowerID, FollowingID)
+            VALUES ($followerID, $followingID);
+        ";
+    
+        $res = $sql->query($query);
+    
+        if (!$res)
+        {
+            return ["error" => $sql->error, "success" => false];
+        }
+    
+        // Return the result
+        return ["success" => true, "result" => $res];
+    }    
 
 
     public static function read($data = null)
@@ -53,6 +76,27 @@ class FollowService extends Service
 
     public static function delete($data = null)
     {
+        if (!isset($data["FollowerID"]) && !isset($data["FollowingID"]))
+        {
+            return ["success" => false, "error" => "FollowerID or FollowingID is not set."];
+        }
+        $sql = DBService::getInstance()->connection;
+        
+        $followerID = intval($data["FollowerID"]);
+        $followingID = intval($data["FollowingID"]);
+        $query = "
+        DELETE FROM Follows
+        WHERE FollowerID = $followerID AND FollowingID = $followingID;
+        ";
+
+        $res = $sql->query($query);
+
+        if (!$res)
+        {
+            return ["error" => $sql->error, "success" => false];
+        }
+
+        return ["success" => true, "result" => $res];
     }
 }
 
