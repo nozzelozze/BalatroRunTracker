@@ -24,7 +24,9 @@ class UserService extends Service
                 u.ProfilePictureIndex,
                 MAX(r.Ante) AS HighestAnte, 
                 MAX(r.BestHand) AS BestHand, 
-                COUNT(r.RunID) AS RunsCompleted
+                COUNT(r.RunID) AS RunsCompleted,
+                (SELECT COUNT(*) FROM Follows f1 WHERE f1.FollowingID = u.UserID) AS FollowersCount,
+                (SELECT COUNT(*) FROM Follows f2 WHERE f2.FollowerID = u.UserID) AS FollowingCount
             FROM 
                 USERS u
             LEFT JOIN 
