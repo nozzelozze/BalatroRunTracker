@@ -16,7 +16,7 @@ class FollowService extends Service
     
         $sql = DBService::getInstance()->connection;
         $query = "
-            INSERT INTO Follows (FollowerID, FollowingID)
+            INSERT INTO FOLLOWS (FollowerID, FollowingID)
             VALUES ($followerID, $followingID);
         ";
     
@@ -47,7 +47,7 @@ class FollowService extends Service
             $query = "
                 SELECT u.UserID, u.Username, u.ProfilePictureIndex
                 FROM Users u
-                JOIN Follows f ON u.UserID = f.FollowingID
+                JOIN FOLLOWS f ON u.UserID = f.FollowingID
                 WHERE f.FollowerID = $followerID;
             ";
         } else if (isset($data["FollowingID"]))
@@ -56,7 +56,7 @@ class FollowService extends Service
             $query = "
                 SELECT u.UserID, u.Username, u.ProfilePictureIndex
                 FROM Users u
-                JOIN Follows f ON u.UserID = f.FollowerID
+                JOIN FOLLOWS f ON u.UserID = f.FollowerID
                 WHERE f.FollowingID = $followingID;
             ";
         }
@@ -85,7 +85,7 @@ class FollowService extends Service
         $followerID = intval($data["FollowerID"]);
         $followingID = intval($data["FollowingID"]);
         $query = "
-        DELETE FROM Follows
+        DELETE FROM FOLLOWS
         WHERE FollowerID = $followerID AND FollowingID = $followingID;
         ";
 
