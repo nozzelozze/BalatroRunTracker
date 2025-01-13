@@ -56,6 +56,9 @@ if (isset($_SESSION["LOGGED_IN_USER"])) {
             $loggedInUserFollowing = true;
         }
     }
+} else
+{
+    $isViewingOwnProfile = true;
 }
 
 ?>
