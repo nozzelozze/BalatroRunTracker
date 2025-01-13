@@ -46,7 +46,7 @@ class FollowService extends Service
             $followerID = intval($data["FollowerID"]);
             $query = "
                 SELECT u.UserID, u.Username, u.ProfilePictureIndex
-                FROM Users u
+                FROM USERS u
                 JOIN FOLLOWS f ON u.UserID = f.FollowingID
                 WHERE f.FollowerID = $followerID;
             ";
@@ -55,7 +55,7 @@ class FollowService extends Service
             $followingID = intval($data["FollowingID"]);
             $query = "
                 SELECT u.UserID, u.Username, u.ProfilePictureIndex
-                FROM Users u
+                FROM USERS u
                 JOIN FOLLOWS f ON u.UserID = f.FollowerID
                 WHERE f.FollowingID = $followingID;
             ";
